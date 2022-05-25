@@ -45,7 +45,7 @@ const Register = () => {
                                 onSubmit={Register}
                                 className="box border border-warning"
                             >
-                                <h1>REGISTER</h1>
+                                <h1>REGISTER NEW USER</h1>
                                 <p className="has-text-centered">{msg}</p>
                                 <div className="field mt-5">
                                     <label className="label">Name</label>
