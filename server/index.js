@@ -23,7 +23,7 @@ app.get("/api", (req, res) => {
         })
         .catch((err) => {
             console.log(err);
-            res.json(tulos);
+            res.json(err);
         });
 });
 
