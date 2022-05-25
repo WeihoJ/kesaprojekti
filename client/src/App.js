@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar.js";
+import BSNavbar from "./components/BSNavbar.js";
 
 const App = () => {
     const [fetchData, setFetchData] = useState([]);
@@ -14,6 +15,7 @@ const App = () => {
 
     return (
         <div>
+            <BSNavbar />
             <Navbar navLink={fetchData} />
         </div>
     );
