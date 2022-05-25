@@ -1,24 +1,36 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
-const Login = () => {
-    const [email, setEmail] = useState("");
+const Register = () => {
+    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
+    const [confPassword, setConfPassword] = useState("");
     const [msg, setMsg] = useState("");
-    const history = useNavigate();
 
-    const Auth = async (e) => {
+    const Register = async (e) => {
         e.preventDefault();
-        try {
-            await axios.post("http://localhost:5000/login", {
-                email: email,
-                password: password,
-            });
-            history.push("/dashboard");
-        } catch (error) {
-            if (error.response) {
-                setMsg(error.response.data.msg);
+
+        if (typeof name === "undefined" || name === "") {
+            setMsg("Name is required");
+        }
+        if (typeof password === "undefined" || password === "") {
+            setMsg("Password is required");
+        } else {
+            if (password !== confPassword) {
+                setMsg("Passwords do not match");
+            } else {
+                setMsg("");
+                try {
+
+                    let vastaus = await axios.post("http://localhost:3001/register", {
+                        name,
+                        password,
+                    });
+                    setMsg(vastaus.data.message);
+                } catch (error) {
+                    if (error.response) {
+                    }
+                }
             }
         }
     };
@@ -29,20 +41,21 @@ const Login = () => {
                 <div className="container">
                     <div className="columns is-centered">
                         <div className="column is-4-desktop">
-                            <form onSubmit={Auth} className="box">
+                            <form
+                                onSubmit={Register}
+                                className="box border border-warning"
+                            >
+                                <h1>REGISTER</h1>
                                 <p className="has-text-centered">{msg}</p>
                                 <div className="field mt-5">
-                                    <label className="label">
-                                        Email or Username
-                                    </label>
+                                    <label className="label">Name</label>
                                     <div className="controls">
                                         <input
                                             type="text"
                                             className="input"
-                                            placeholder="Username"
-                                            value={email}
+                                            placeholder="Name"
                                             onChange={(e) =>
-                                                setEmail(e.target.value)
+                                                setName(e.target.value)
                                             }
                                         />
                                     </div>
@@ -54,7 +67,6 @@ const Login = () => {
                                             type="password"
                                             className="input"
                                             placeholder="******"
-                                            value={password}
                                             onChange={(e) =>
                                                 setPassword(e.target.value)
                                             }
@@ -62,8 +74,23 @@ const Login = () => {
                                     </div>
                                 </div>
                                 <div className="field mt-5">
+                                    <label className="label">
+                                        Confirm Password
+                                    </label>
+                                    <div className="controls">
+                                        <input
+                                            type="password"
+                                            className="input"
+                                            placeholder="******"
+                                            onChange={(e) =>
+                                                setConfPassword(e.target.value)
+                                            }
+                                        />
+                                    </div>
+                                </div>
+                                <div className="field mt-5">
                                     <button className="button is-success is-fullwidth">
-                                        Login
+                                        Register
                                     </button>
                                 </div>
                             </form>
@@ -75,4 +102,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
