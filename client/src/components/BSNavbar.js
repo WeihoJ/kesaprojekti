@@ -1,11 +1,12 @@
 import React from "react";
+import Logo from "../assets/img/logo/Logo light.png";
 
 const BSNavbar = () => {
     return (
-        <nav class="navbar navbar-expand-lg bg-light">
+        <nav class="navbar navbar-expand-lg bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    Navbar
+                <a class="navbar-brand text-warning" href="#">
+                    <img src={Logo} alt="" />
                 </a>
                 <button
                     class="navbar-toggler"
@@ -22,7 +23,7 @@ const BSNavbar = () => {
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a
-                                class="nav-link active"
+                                class="nav-link text-warning"
                                 aria-current="page"
                                 href="#"
                             >
@@ -30,18 +31,18 @@ const BSNavbar = () => {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link text-warning" href="#">
                                 Features
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link text-warning" href="#">
                                 Pricing
                             </a>
                         </li>
                         <li class="nav-item dropdown">
                             <a
-                                class="nav-link dropdown-toggle"
+                                class="nav-link dropdown-toggle text-warning"
                                 href="#"
                                 id="navbarDropdownMenuLink"
                                 role="button"
@@ -55,17 +56,17 @@ const BSNavbar = () => {
                                 aria-labelledby="navbarDropdownMenuLink"
                             >
                                 <li>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item text-danger" href="#">
                                         Action
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item text-danger" href="#">
                                         Another action
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item text-danger" href="#">
                                         Something else here
                                     </a>
                                 </li>
