@@ -1,0 +1,21 @@
+{
+    "name": "projekti",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "serverStart": "cd ./server && npm start",
+        "clientStart": "cd ./client && npm start"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/WeihoJ/kesaprojekti.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/WeihoJ/kesaprojekti/issues"
+    },
+    "homepage": "https://github.com/WeihoJ/kesaprojekti#readme"
+}
