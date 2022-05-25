@@ -17,7 +17,7 @@ const BSNavbar = () => {
                     aria-expanded="false"
                     aria-label="Toggle navigation"
                 >
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon bg-light"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
@@ -31,7 +31,7 @@ const BSNavbar = () => {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-warning" href="#">
+                            <a class="nav-link text-warning" href="/koira">
                                 Features
                             </a>
                         </li>
@@ -56,17 +56,26 @@ const BSNavbar = () => {
                                 aria-labelledby="navbarDropdownMenuLink"
                             >
                                 <li>
-                                    <a class="dropdown-item text-danger" href="#">
+                                    <a
+                                        class="dropdown-item text-danger"
+                                        href="#"
+                                    >
                                         Action
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item text-danger" href="#">
+                                    <a
+                                        class="dropdown-item text-danger"
+                                        href="#"
+                                    >
                                         Another action
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item text-danger" href="#">
+                                    <a
+                                        class="dropdown-item text-danger"
+                                        href="#"
+                                    >
                                         Something else here
                                     </a>
                                 </li>
