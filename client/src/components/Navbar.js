@@ -4,7 +4,7 @@ import "./Navbar.css";
 const Navbar = (props) => {
     return (
         <div>
-            <ul className="navbar-nav">
+            {/* <ul className="navbar-nav">
                 {props.navLink.map((user) => {
                     return (
                         <li className="nav-item" key={user.kayttajaid}>
@@ -14,7 +14,29 @@ const Navbar = (props) => {
                         </li>
                     );
                 })}
-            </ul>
+            </ul> */}
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Käyttäjäid</th>
+                        <th scope="col">Käyttäjänimi</th>
+                        <th scope="col">Salasana</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {props.navLink.map((user) => {
+                        return (
+                            <tr key={user.kayttajaid}>
+                                <th scope="row">{user.kayttajaid}</th>
+                                <td>{user.kayttajanimi}</td>
+                                <td>{user.salasana}</td>
+                            </tr>
+                        );
+                    })}
+                    ;
+                </tbody>
+            </table>
         </div>
     );
 };
