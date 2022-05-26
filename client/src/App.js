@@ -32,7 +32,7 @@ const App = () => {
     }, []);
 
     function logout() {
-        axios.get("http://localhost:3001/api/logout").then((response) => {
+        axios.post("http://localhost:3001/api/logout").then((response) => {
             setIsLoggedIn(false);
         });
     }
@@ -44,7 +44,7 @@ const App = () => {
                 <BSNavbar />
                 <Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>
                 <Register />
-                <button onClick={logout()}>Kirjaudu ulos</button>
+                <button onClick={logout} >Kirjaudu ulos</button>
                 <Login />
             </div>
         );
