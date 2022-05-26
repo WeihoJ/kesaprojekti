@@ -22,6 +22,7 @@ const Navbar = (props) => {
                         <th scope="col">Käyttäjäid</th>
                         <th scope="col">Käyttäjänimi</th>
                         <th scope="col">Salasana</th>
+                        <th scope="col">Rooli</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,6 +32,7 @@ const Navbar = (props) => {
                                 <th scope="row">{user.kayttajaid}</th>
                                 <td>{user.kayttajanimi}</td>
                                 <td>{user.salasana}</td>
+                                <td>{user.rooli}</td>
                             </tr>
                         );
                     })}
