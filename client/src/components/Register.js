@@ -13,6 +13,10 @@ const Register = () => {
     const Register = async (e) => {
         e.preventDefault();
 
+        console.log("Name: " + name);
+        console.log("Password: " + password);
+        console.log("Confirm Password: " + confPassword);
+        console.log("Role: " + role);
 
         if (typeof role === "undefined" || role === "") {
             setMsg("Role is required");
@@ -32,6 +36,7 @@ const Register = () => {
                     let vastaus = await axios.post("http://localhost:3001/register", {
                         name,
                         password,
+                        role,
                     });
                     setMsg(vastaus.data.message);
                 } catch (error) {

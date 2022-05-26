@@ -10,6 +10,8 @@ import Register from "./components/Register.js";
 const App = () => {
     const [fetchData, setFetchData] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [loggedUser, setLoggedUser] = useState("");
+    const [loggedUserRole, setLoggedUserRole] = useState("");
 
     axios.defaults.withCredentials = true;
 
@@ -24,9 +26,14 @@ const App = () => {
         axios.get("http://localhost:3001/api/checklogin").then((response) => {
             // console.log(response.data.loggedIn);
             if (response.data.loggedIn) {
+                console.log(response.data)
                 setIsLoggedIn(true);
+                setLoggedUser(response.data.user);
+                setLoggedUserRole(response.data.userRole);
             } else {
                 setIsLoggedIn(false);
+                setLoggedUser("");
+                setLoggedUserRole("");
             }
         });
     }, []);
@@ -40,9 +47,9 @@ const App = () => {
     if (isLoggedIn) {
         return (
             <div>
-                <h1>Kirjautunut</h1>
                 <BSNavbar />
                 <Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>
+                <h3>Kirjautunut käyttäjällä <span className="bold">{loggedUser}</span>, käyttäjän rooli <span className="bold">{loggedUserRole}</span></h3>
                 <Register />
                 <button onClick={logout} >Kirjaudu ulos</button>
                 <Login />
@@ -51,9 +58,9 @@ const App = () => {
     } else {
         return (
             <div>
-                <h1>Ei kirjautunut</h1>
                 <BSNavbar />
                 <Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>
+                <h3>Ei kirjautunut</h3>
                 <Login />
                 <Register />
             </div>

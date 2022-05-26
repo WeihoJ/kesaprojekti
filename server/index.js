@@ -54,7 +54,8 @@ app.get("/api", (req, res) => {
 
 app.get("/api/checklogin", (req, res) => {
     if (req.session.user) {
-        res.send({ loggedIn: true, user: req.session.user });
+        console.log(req.session)
+        res.send({ loggedIn: true, user: req.session.user, userRole: req.session.userRole });
     } else {
         res.send({ loggedIn: false });
     }
@@ -74,7 +75,8 @@ app.post("/login", (req, res) => {
         .then((tulos) => {
             // console.log(tulos);
             if (tulos.signedIn) {
-                req.session.user = username;
+                req.session.user = tulos.user.kayttajanimi;
+                req.session.userRole = tulos.user.rooli;
                 res.send(tulos);
             } else {
                 res.send(tulos);
@@ -88,9 +90,10 @@ app.post("/login", (req, res) => {
 app.post("/register", (req, res) => {
     const name = req.body.name;
     const password = req.body.password;
+    const role = req.body.role;
 
     varasto
-        .lisaaKayttaja(name, password)
+        .lisaaKayttaja(name, password, role)
         .then((tulos) => {
             // console.log(tulos);
             res.send(tulos);
