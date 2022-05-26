@@ -1,0 +1,5 @@
+{
+    "haeKaikki":"SELECT * FROM kayttajat",
+    "haeKayttaja":"SELECT * FROM kayttajat WHERE kayttajanimi=?",
+    "lisaaKayttaja":"INSERT INTO kayttajat (kayttajanimi, salasana) VALUES (?, ?)"
+}
