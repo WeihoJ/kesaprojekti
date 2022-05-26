@@ -54,7 +54,7 @@ app.get("/api", (req, res) => {
 
 app.get("/api/checklogin", (req, res) => {
     if (req.session.user) {
-        console.log(req.session)
+        // console.log(req.session)
         res.send({ loggedIn: true, user: req.session.user, userRole: req.session.userRole });
     } else {
         res.send({ loggedIn: false });

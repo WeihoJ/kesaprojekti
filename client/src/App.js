@@ -9,7 +9,7 @@ import Register from "./components/Register.js";
 
 const App = () => {
     const [fetchData, setFetchData] = useState([]);
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [loggedUser, setLoggedUser] = useState("");
     const [loggedUserRole, setLoggedUserRole] = useState("");
 
