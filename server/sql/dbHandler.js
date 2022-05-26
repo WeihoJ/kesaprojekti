@@ -57,6 +57,7 @@ module.exports = class Tietovarasto {
                                 resolve({
                                     signedIn: true,
                                     message: "Kirjautuminen onnistui",
+                                    user: tulos,
                                 });
                             } else {
                                 reject({
@@ -83,7 +84,7 @@ module.exports = class Tietovarasto {
         });
     }
 
-    lisaaKayttaja(kayttajanimi, salasana) {
+    lisaaKayttaja(kayttajanimi, salasana, role) {
         return new Promise(async (resolve, reject) => {
             try {
                 // Luo argon2 salauksella suojatun salasanan
@@ -98,6 +99,9 @@ module.exports = class Tietovarasto {
                 } else if (typeof salasana === "undefined" || salasana === "") {
                     // Ei pitäisi ikinä joutua tänne koska frontista ei lähde pyyntö jos tyhjä
                     reject({ message: "Salasana puuttuu" });
+                } else if (typeof role === "undefined" || role === "") {
+                    // Ei pitäisi ikinä joutua tänne koska frontista ei lähde pyyntö jos tyhjä
+                    reject({ message: "Rooli puuttuu" });
                 } else {
                     // Hakee tietokannasta käyttjiä annetulla nimellä
                     let onkoJo = await this.db.runQuery(
@@ -110,8 +114,8 @@ module.exports = class Tietovarasto {
                         reject({ message: "Käyttäjänimi on jo käytössä" });
                     } else {
                         await this.db.runQuery(
-                            "INSERT INTO kayttajat (kayttajanimi, salasana) VALUES (?, ?)",
-                            [kayttajanimi, securePassword]
+                            "INSERT INTO kayttajat (kayttajanimi, salasana, rooli) VALUES (?, ?, ?)",
+                            [kayttajanimi, securePassword, role]
                         );
                         resolve({ message: "Käyttäjä lisätty" });
                     }

@@ -36,7 +36,6 @@ const Navbar = (props) => {
                             </tr>
                         );
                     })}
-                    ;
                 </tbody>
             </table>
         </div>
