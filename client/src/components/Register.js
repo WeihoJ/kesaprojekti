@@ -7,6 +7,8 @@ const Register = () => {
     const [confPassword, setConfPassword] = useState("");
     const [msg, setMsg] = useState("");
 
+    axios.defaults.withCredentials = true;
+    
     const Register = async (e) => {
         e.preventDefault();
 

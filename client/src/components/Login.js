@@ -6,6 +6,8 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [msg, setMsg] = useState("");
 
+    axios.defaults.withCredentials = true;
+
     const Auth = async (e) => {
         e.preventDefault();
 
