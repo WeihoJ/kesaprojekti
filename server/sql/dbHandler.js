@@ -57,11 +57,12 @@ module.exports = class Tietovarasto {
                                     signedIn: true,
                                     message: "Kirjautuminen onnistui",
                                     user: tulos,
-                                });} else {
-                                    reject({
-                                        signedIn: false,
-                                        message: "Väärä salasana",
-                                    });
+                                });
+                            } else {
+                                reject({
+                                    signedIn: false,
+                                    message: "Väärä salasana",
+                                });
                             }
                             reject({
                                 signedIn: false,
@@ -82,7 +83,7 @@ module.exports = class Tietovarasto {
         });
     }
 
-    lisaaKayttaja(kayttajanimi, salasana) {
+    lisaaKayttaja(kayttajanimi, salasana, role) {
         return new Promise(async (resolve, reject) => {
             try {
                 // Luo argon2 salauksella suojatun salasanan
@@ -110,6 +111,7 @@ module.exports = class Tietovarasto {
                         await this.db.runQuery(sql.lisaaKayttaja, [
                             kayttajanimi,
                             securePassword,
+                            role,
                         ]);
                         resolve({ message: "Käyttäjä lisätty" });
                     }

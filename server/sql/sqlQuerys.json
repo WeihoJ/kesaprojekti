@@ -1,5 +1,5 @@
 {
-    "haeKaikki":"SELECT * FROM kayttajat",
-    "haeKayttaja":"SELECT * FROM kayttajat WHERE kayttajanimi=?",
-    "lisaaKayttaja":"INSERT INTO kayttajat (kayttajanimi, salasana) VALUES (?, ?)"
+    "haeKaikki": "SELECT * FROM kayttajat",
+    "haeKayttaja": "SELECT * FROM kayttajat WHERE kayttajanimi=?",
+    "lisaaKayttaja": "INSERT INTO kayttajat (kayttajanimi, salasana, rooli) VALUES (?, ?, ?)"
 }
