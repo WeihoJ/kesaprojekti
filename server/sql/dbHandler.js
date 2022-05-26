@@ -35,51 +35,46 @@ module.exports = class Tietovarasto {
             try {
                 // Luo argon2 salauksella suojatun salasanan
                 const securePassword = await argon2.hash(password);
-                console.log(await argon2.verify(securePassword, username));
 
                 if (typeof username === "undefined" || username === "") {
                     // Ei pitäisi ikinä joutua tänne koska frontista ei lähde pyyntö jos tyhjä
-                    reject({ message: "Käyttäjänimi puuttuu" });
+                    reject({
+                        signedIn: false,
+                        message: "Käyttäjänimi puuttuu",
+                    });
                 } else if (typeof password === "undefined" || password === "") {
                     // Ei pitäisi ikinä joutua tänne koska frontista ei lähde pyyntö jos tyhjä
-                    reject({ message: "Salasana puuttuu" });
+                    reject({ signedIn: false, message: "Salasana puuttuu" });
                 } else {
                     const tulosJoukko = await this.db.runQuery(
                         "SELECT * FROM kayttajat",
                         []
                     );
-                    // tulosJoukko.forEach((tulos) => {
-                    //     // if (
-                    //     //     tulos.kayttajanimi == username &&
-                    //     //     tulos.salasana == password
-                    //     // ) {
-                    //     //     resolve({ message: "Kirjautuminen onnistui" });
-                    //     // }
-                    //     if (tulos.kayttajanimi == username) {
-                    //         // if (await argon.verify(tulos.salasana, password)) {
-                    //         // resolve({ message: "Kirjautuminen onnistui" });
-                    //         // } else {
-                    //         //     reject({ message: "Väärä salasana" });
-                    //         // }
-                    //     } else {
-                    //         reject({
-                    //             message: "Käyttäjänimeä ei ole olemassa",
-                    //         });
-                    //     }
-                    // });
 
                     for (const tulos of tulosJoukko) {
                         if (tulos.kayttajanimi == username) {
                             if (await argon2.verify(tulos.salasana, password)) {
-                                resolve({ message: "Kirjautuminen onnistui" });
+                                resolve({
+                                    signedIn: true,
+                                    message: "Kirjautuminen onnistui",
+                                });
                             } else {
-                                reject({ message: "Väärä salasana" });
+                                reject({
+                                    signedIn: false,
+                                    message: "Väärä salasana",
+                                });
                             }
-                        reject({ message: "Käyttäjänimeä ei ole olemassa" });
+                            reject({
+                                signedIn: false,
+                                message: "Käyttäjänimeä ei ole olemassa",
+                            });
                         }
                     }
 
-                    reject({ message: "Kirjautuminen epäonnistui" });
+                    reject({
+                        signedIn: false,
+                        message: "Kirjautuminen epäonnistui",
+                    });
                 }
             } catch (virhe) {
                 console.log(virhe);

@@ -1,21 +1,29 @@
 const cors = require("cors");
 const mysql = require("mysql");
-const session = require('cookie-session');
 const express = require("express");
 const app = express();
 
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
 
 const { port, host } = require("./config.json");
-
 
 const Tietovarasto = require("./sql/dbHandler.js");
 const varasto = new Tietovarasto();
 
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(
     session({
-        name: "session",
-        secret: "secretKey",
-        expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 24 hours
+        key: "user_id",
+        secret: "superSecretKeyDontShowToAnyone",
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            maxAge: 15 * 60 * 1000,
+        }, // 15 minuuttia
     })
 );
 
@@ -31,8 +39,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/api", (req, res) => {
-
-    console.log(req)
+    // console.log(req)
 
     varasto
         .haeKaikki()
@@ -45,6 +52,19 @@ app.get("/api", (req, res) => {
         });
 });
 
+app.get("/api/checklogin", (req, res) => {
+    if (req.session.user) {
+        res.send({ loggedIn: true, user: req.session.user });
+    } else {
+        res.send({ loggedIn: false });
+    }
+});
+
+app.post("/api/logout", (req, res) => {
+    req.session.destroy();
+    res.send({ loggedIn: false });
+});
+
 app.post("/login", (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
@@ -53,7 +73,12 @@ app.post("/login", (req, res) => {
         .tarkistaKirjautuminen(username, password)
         .then((tulos) => {
             // console.log(tulos);
-            res.send(tulos);
+            if (tulos.signedIn) {
+                req.session.user = username;
+                res.send(tulos);
+            } else {
+                res.send(tulos);
+            }
         })
         .catch((err) => {
             res.send(err);
