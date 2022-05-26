@@ -5,13 +5,18 @@ const Register = () => {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [confPassword, setConfPassword] = useState("");
+    const [role, setRole] = useState("");
     const [msg, setMsg] = useState("");
 
     axios.defaults.withCredentials = true;
-    
+
     const Register = async (e) => {
         e.preventDefault();
 
+
+        if (typeof role === "undefined" || role === "") {
+            setMsg("Role is required");
+        }
         if (typeof name === "undefined" || name === "") {
             setMsg("Name is required");
         }
@@ -86,6 +91,21 @@ const Register = () => {
                                             placeholder="******"
                                             onChange={(e) =>
                                                 setConfPassword(e.target.value)
+                                            }
+                                        />
+                                    </div>
+                                </div>
+                                <div className="field mt-5">
+                                    <label className="label">
+                                        User role
+                                    </label>
+                                    <div className="controls">
+                                        <input
+                                            type="text"
+                                            className="input"
+                                            placeholder="admin"
+                                            onChange={(e) =>
+                                                setRole(e.target.value)
                                             }
                                         />
                                     </div>
