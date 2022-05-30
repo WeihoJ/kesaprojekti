@@ -6,6 +6,7 @@ import BSNavbar from "./components/BSNavbar.js";
 import axios from "axios";
 import Login from "./components/Login.js";
 import Register from "./components/Register.js";
+import Footer from "./components/Footer";
 
 const App = () => {
     const [fetchData, setFetchData] = useState([]);
@@ -63,6 +64,7 @@ const App = () => {
                 <h3>Ei kirjautunut</h3>
                 <Login />
                 <Register />
+                <Footer />
             </div>
         );
     }
