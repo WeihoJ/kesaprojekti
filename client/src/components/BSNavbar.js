@@ -1,9 +1,9 @@
 import React from "react";
-import Logo from "../assets/img/logo/Logo light.png";
+import Logo from "../assets/img/logo/Logo dark.png";
 
 const BSNavbar = () => {
     return (
-        <nav class="navbar navbar-expand-lg bg-dark">
+        <nav class="navbar navbar-expand-lg fixed-top bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand text-warning" href="#">
                     <img src={Logo} alt="" />
@@ -19,67 +19,26 @@ const BSNavbar = () => {
                 >
                     <span class="navbar-toggler-icon bg-light"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <div class="collapse navbar-collapse justify-content-md-end" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a
-                                class="nav-link text-warning"
+                                class="nav-link"
                                 aria-current="page"
                                 href="#"
                             >
-                                Home
+                                Etusivu
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-warning" href="/koira">
-                                Features
+                            <a class="nav-link" href="/koira">
+                                Esimerkkisivu
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-warning" href="#">
-                                Pricing
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle text-warning"
-                                href="#"
-                                id="navbarDropdownMenuLink"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >
-                                Dropdown link
-                            </a>
-                            <ul
-                                class="dropdown-menu"
-                                aria-labelledby="navbarDropdownMenuLink"
-                            >
-                                <li>
-                                    <a
-                                        class="dropdown-item text-danger"
-                                        href="#"
-                                    >
-                                        Action
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        class="dropdown-item text-danger"
-                                        href="#"
-                                    >
-                                        Another action
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        class="dropdown-item text-danger"
-                                        href="#"
-                                    >
-                                        Something else here
-                                    </a>
-                                </li>
-                            </ul>
+                            <button type="button" class="btn btn-outline-warning">
+                                Kirjaudu
+                            </button>
                         </li>
                     </ul>
                 </div>

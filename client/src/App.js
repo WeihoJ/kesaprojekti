@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar.js";
 import BSNavbar from "./components/BSNavbar.js";
+import BSVideo from "./components/BSVideo.js";
+import BSCaption from "./components/BSCaption";
 import axios from "axios";
 import Login from "./components/Login.js";
 import Register from "./components/Register.js";
@@ -57,6 +59,8 @@ const App = () => {
         return (
             <div>
                 <BSNavbar />
+                <BSVideo />
+                <BSCaption />
                 <Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>
                 <h3>Kirjautunut käyttäjällä <span className="bold">{loggedUser}</span>, käyttäjän rooli <span className="bold">{loggedUserRole}</span></h3>
                 <Register />
@@ -69,6 +73,8 @@ const App = () => {
         return (
             <div>
                 <BSNavbar />
+                <BSVideo />
+                <BSCaption />
                 <Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>
                 <h3>Ei kirjautunut</h3>
                 <Login />
