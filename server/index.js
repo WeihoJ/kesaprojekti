@@ -51,6 +51,16 @@ app.get("/api", (req, res) => {
             res.send(err);
         });
 });
+app.get("/pyynnot", (req, res) => {
+    varasto.haePyynnot()
+            .then((tulos) => {
+            res.send(tulos);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send(err);
+        });
+});
 
 app.get("/api/checklogin", (req, res) => {
     if (req.session.user) {
@@ -65,6 +75,7 @@ app.post("/api/logout", (req, res) => {
     req.session.destroy();
     res.send({ loggedIn: false });
 });
+
 
 app.post("/login", (req, res) => {
     const username = req.body.username;
@@ -104,6 +115,25 @@ app.post("/register", (req, res) => {
         });
 });
 
+app.post("/yhteydenotto", (req, res) => {
+    const nimi = req.body.nimi;
+    const puhnro = req.body.puhnro;
+    const sposti = req.body.sposti;
+    const viesti=req.body.viesti;
+
+    varasto
+        .lisaaYhteydenottopyynto(nimi,puhnro,sposti,viesti)
+        .then((tulos) => {
+            res.send(tulos);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send(err);
+        });
+});
+
 app.listen(port, host, () => {
     console.log(`Palvelin käynnistyi portissa ${port}`);
 });
+// const a = new Tietovarasto();
+// a.haePyynnot();

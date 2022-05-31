@@ -28,6 +28,22 @@ module.exports = class Tietovarasto {
             }
         });
     }
+    haePyynnot() {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const tulos = await this.db.runQuery(sql.haeKaikkiPyynnot, []);
+                if (tulos) {
+                    console.log(await tulos);
+                    resolve(tulos);
+                } else {
+                    reject("Ei löytyny");
+                }
+            } catch (virhe) {
+                console.log(virhe);
+                reject(virhe);
+            }
+        });
+    };
 
     tarkistaKirjautuminen(username, password) {
         return new Promise(async (resolve, reject) => {
@@ -122,4 +138,23 @@ module.exports = class Tietovarasto {
             }
         });
     }
+
+    lisaaYhteydenottopyynto(nimi, puhnro, sposti, viesti) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                if (typeof sposti === "undefined" || sposti === "") {
+                    reject({ message: "Sähköposti puuttuu" });
+                } else if (typeof viesti === "undefined" || viesti === "") {
+                    reject({ message: "Viesti puuttuu" });
+                } else {
+                    await this.db.runQuery(sql.lisaaYhteydenottopyynto, [nimi, puhnro, sposti, viesti]);
+                        resolve({ message: "Yhteydenottopyyntö jätetty onnistuneesti" });
+                    }
+            } catch (virhe) {
+                console.log(virhe);
+                reject(virhe);
+            }
+        });
+    }
 };
+

@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 
 const App = () => {
     const [fetchData, setFetchData] = useState([]);
+    const [pyyntoFetchData, setPyyntoFetchData] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [loggedUser, setLoggedUser] = useState("");
     const [loggedUserRole, setLoggedUserRole] = useState("");
@@ -22,6 +23,13 @@ const App = () => {
             .then((response) => setFetchData(response.data))
             .catch((error) => console.log(error));
     }, []);
+    // useEffect(() => {
+    //     axios
+    //         .get("http://localhost:3001/pyynnot")
+    //         .then((response) => setPyyntoFetchData(response.data))
+    //         .catch((error) => console.log(error));
+    // }, []);
+    
 
     useEffect(() => {
         axios.get("http://localhost:3001/api/checklogin").then((response) => {
@@ -54,6 +62,7 @@ const App = () => {
                 <Register />
                 <button onClick={logout} >Kirjaudu ulos</button>
                 <Login />
+                <Footer navLink={pyyntoFetchData}/>
             </div>
         );
     } else {
@@ -64,7 +73,7 @@ const App = () => {
                 <h3>Ei kirjautunut</h3>
                 <Login />
                 <Register />
-                <Footer />
+                <Footer navLink={pyyntoFetchData}/>
             </div>
         );
     }
