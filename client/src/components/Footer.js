@@ -74,29 +74,6 @@ const Footer = (tiedot) => {
             <div class="copyright">Taitaja &#169; 2022</div>
             
             <div class="testijono">
-            {/* <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Käyttäjäid</th>
-                        <th scope="col">Käyttäjänimi</th>
-                        <th scope="col">Salasana</th>
-                        <th scope="col">Rooli</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {props.navLink.map((user) => {
-                        return (
-                            <tr key={user.kayttajaid}>
-                                <th scope="row">{user.kayttajaid}</th>
-                                <td>{user.kayttajanimi}</td>
-                                <td>{user.salasana}</td>
-                                <td>{user.rooli}</td>
-                            </tr>
-                        );
-                    })}
-                    
-                </tbody>
-            </table> */}
             </div>
         </footer>
 
