@@ -37,11 +37,17 @@ span.bold {
     font-weight: bold;
 }
 
-.red {
-    color: red;
+h1 {
+    font-size: 56px;
+    font-weight: bold;
 }
 
-/* video-background */
+/* Navbar */
+.nav-item a{
+    color: var(--color-neutral)
+};
+
+/* Video */
 .video-background { 
     position: relative;
     width: 100%;
@@ -53,5 +59,10 @@ span.bold {
     position: absolute;
     top: 38%;
     width: 100%;
-    color: white;
+    color: var(--color-neutral);
+}
+
+.caption h1{
+    color: var(--color-neutral);
+    padding-bottom: 100px;
 }
