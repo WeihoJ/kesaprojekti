@@ -17,5 +17,10 @@
     "bugs": {
         "url": "https://github.com/WeihoJ/kesaprojekti/issues"
     },
-    "homepage": "https://github.com/WeihoJ/kesaprojekti#readme"
+    "homepage": "https://github.com/WeihoJ/kesaprojekti#readme",
+    "dependencies": {
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-router-dom": "^6.3.0"
+    }
 }
