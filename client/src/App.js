@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar.js";
 import BSNavbar from "./components/BSNavbar.js";
 import BSVideo from "./components/BSVideo.js";
 import BSCaption from "./components/BSCaption";
+import BSInfo from "./components/BSInfo";
 import axios from "axios";
 import Login from "./components/Login.js";
 import Register from "./components/Register.js";
@@ -66,6 +67,7 @@ const App = () => {
                 <BSVideo />
                 <BSCaption />
                 {/* <Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/> */}
+                <BSInfo />
             
                  <Router>
                         <Routes>
@@ -86,6 +88,7 @@ const App = () => {
                 <h3>Ei kirjautunut</h3>
                 <BSCaption />
                 {/* <Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/> */}
+                <BSInfo />
                 <Router>
                         <Routes>
                             <Route exact path="/kaikkiKayttajat" element={<Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>}></Route>
