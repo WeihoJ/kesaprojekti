@@ -9,6 +9,9 @@ import axios from "axios";
 import Login from "./components/Login.js";
 import Register from "./components/Register.js";
 import Footer from "./components/Footer";
+import Testi from "./components/testi";
+import { BrowserRouter as Router,Route, Routes, Link} from "react-router-dom";
+
 
 const App = () => {
     const [fetchData, setFetchData] = useState([]);
@@ -58,11 +61,17 @@ const App = () => {
     if (isLoggedIn) {
         return (
             <div>
+                <h3>Kirjautunut käyttäjällä <span className="bold">{loggedUser}</span>, käyttäjän rooli <span className="bold">{loggedUserRole}</span></h3>
                 <BSNavbar />
                 <BSVideo />
                 <BSCaption />
-                <Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>
-                <h3>Kirjautunut käyttäjällä <span className="bold">{loggedUser}</span>, käyttäjän rooli <span className="bold">{loggedUserRole}</span></h3>
+                {/* <Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/> */}
+            
+                 <Router>
+                        <Routes>
+                            <Route exact path="/kaikkiKayttajat" element={<Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>}></Route>
+                        </Routes>
+                </Router>
                 <Register />
                 <button onClick={logout} >Kirjaudu ulos</button>
                 <Login />
@@ -74,9 +83,14 @@ const App = () => {
             <div>
                 <BSNavbar />
                 <BSVideo />
-                <BSCaption />
-                <Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>
                 <h3>Ei kirjautunut</h3>
+                <BSCaption />
+                {/* <Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/> */}
+                <Router>
+                        <Routes>
+                            <Route exact path="/kaikkiKayttajat" element={<Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>}></Route>
+                        </Routes>
+                </Router>
                 <Login />
                 <Register />
                 <Footer navLink={pyyntoFetchData}/>
