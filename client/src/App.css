@@ -50,11 +50,12 @@ h1 {
 /* Video */
 .video-background { 
     position: relative;
-    width: 100%;
-    min-height: 100vh;
 }
 
-/* Caption */
+.video-background video {
+    width: 100%;
+}
+
 .caption {
     position: absolute;
     top: 38%;
@@ -67,9 +68,10 @@ h1 {
     padding-bottom: 100px;
 }
 
-/* Meista */
-.rivi {
+/* Info */
+.info {
     background-color: var(--color-primary);
+    margin: 0px;
 }
 
 .col1 {
@@ -82,4 +84,13 @@ h1 {
     padding: 50px 0px;
     margin-left: 50px;
     margin-right: 100px;
+}
+
+/* Karuselli */
+.col3 {
+    background-color: var(--color-secondary);
+}
+
+.col KKuva {
+    width: 100%;
 }

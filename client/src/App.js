@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar.js";
 import BSNavbar from "./components/BSNavbar.js";
-import BSVideo from "./components/BSVideo.js";
-import BSCaption from "./components/BSCaption";
 import BSInfo from "./components/BSInfo";
 import axios from "axios";
 import Login from "./components/Login.js";
