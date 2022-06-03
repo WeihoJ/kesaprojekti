@@ -11,6 +11,7 @@ import Login from "./components/Login.js";
 import Register from "./components/Register.js";
 import Footer from "./components/Footer";
 import Testi from "./components/testi";
+import Koti from "./pages/koti"
 import { BrowserRouter as Router,Route, Routes, Link} from "react-router-dom";
 
 
@@ -62,18 +63,15 @@ const App = () => {
     if (isLoggedIn) {
         return (
             <div>
-                <h3>Kirjautunut käyttäjällä <span className="bold">{loggedUser}</span>, käyttäjän rooli <span className="bold">{loggedUserRole}</span></h3>
                 <BSNavbar />
-                <BSVideo />
-                <BSCaption />
-                {/* <Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/> */}
-                <BSInfo />
-            
                  <Router>
                         <Routes>
                             <Route exact path="/kaikkiKayttajat" element={<Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>}></Route>
+                            <Route exact path="/koti" element={<Koti/>}></Route>
+
                         </Routes>
                 </Router>
+                <h3>Kirjautunut käyttäjällä <span className="bold">{loggedUser}</span>, käyttäjän rooli <span className="bold">{loggedUserRole}</span></h3>
                 <Register />
                 <button onClick={logout} >Kirjaudu ulos</button>
                 <Login />
@@ -84,18 +82,16 @@ const App = () => {
         return (
             <div>
                 <BSNavbar />
-                <BSVideo />
-                <h3>Ei kirjautunut</h3>
-                <BSCaption />
-                {/* <Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/> */}
-                <BSInfo />
                 <Router>
                         <Routes>
                             <Route exact path="/kaikkiKayttajat" element={<Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>}></Route>
+                            <Route exact path="/koti" element={<Koti/>}></Route>
                         </Routes>
                 </Router>
                 <Login />
                 <Register />
+                <h3>Ei kirjautunut</h3>
+
                 <Footer navLink={pyyntoFetchData}/>
             </div>
         );
