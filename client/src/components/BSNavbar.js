@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../assets/img/logo/Logo dark.png";
+import "../App.css";
 
 const BSNavbar = () => {
     return (

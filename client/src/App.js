@@ -64,15 +64,16 @@ const App = () => {
                 <BSNavbar />
                  <Router>
                         <Routes>
-                            <Route exact path="/kaikkiKayttajat" element={<Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>}></Route>
-                            <Route exact path="/koti" element={<Koti/>}></Route>
-
+                        <Route exact path="/kaikkiKayttajat" element={<Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>}></Route>
+                            <Route exact path="" element={<Koti/>}></Route>
+                            <Route exact path="rekisteroidy" element={<Register/>}></Route>
+                            <Route exact path="kirjaudu" element={<Login/>}></Route>
                         </Routes>
                 </Router>
                 <h3>Kirjautunut käyttäjällä <span className="bold">{loggedUser}</span>, käyttäjän rooli <span className="bold">{loggedUserRole}</span></h3>
-                <Register />
-                <button onClick={logout} >Kirjaudu ulos</button>
-                <Login />
+                {/* <Register />
+                <button onClick={logout} >Kirjaudu ulos</button> */}
+                {/* <Login /> */}
                 <Footer navLink={pyyntoFetchData}/>
             </div>
         );
@@ -84,10 +85,13 @@ const App = () => {
                         <Routes>
                             <Route exact path="/kaikkiKayttajat" element={<Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>}></Route>
                             <Route exact path="" element={<Koti/>}></Route>
+                            <Route exact path="rekisteroidy" element={<Register/>}></Route>
+                            <Route exact path="kirjaudu" element={<Login/>}></Route>
+
                         </Routes>
                 </Router>
-                <Login />
-                <Register />
+                {/* <Login />
+                <Register /> */}
                 <h3>Ei kirjautunut</h3>
 
                 <Footer navLink={pyyntoFetchData}/>
