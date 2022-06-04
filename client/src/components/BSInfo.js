@@ -1,13 +1,13 @@
 import React from "react";
 import Kuva1 from "../assets/img/unsplash images/neonbrand-60krlMMeWxU-unsplash.jpg";
 import Video from "../assets/video/background-video.mp4";
-
+import "../App.css"
 const BSInfo = () => {
     return (
         <div>
             {/* Video osuus */}
-            <div class="video-background">
-                <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <div class="video-background" style={{marginBottom:-6}}>
+                <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop">
                     <source src={Video} type="video/mp4"></source>
                 </video>
 
@@ -22,7 +22,7 @@ const BSInfo = () => {
                 {/* Meistä */}
                 <div class="row">
                     <div class="col col1">
-                        <h3>Meistä</h3>
+                        <h3 style={{paddingTop:10}}>Meistä</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem fugiat esse neque incidunt vero quis ex eligendi laboriosam tempore! Fugit ducimus fuga hic ea corrupti nulla. Blanditiis accusantium impedit ad.</p>
                         <br />
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A iusto nihil vel reiciendis quam doloremque. Neque, quibusdam. Maxime quas ad neque soluta nihil nam, ipsum placeat explicabo doloribus, accusamus voluptatibus!</p>
