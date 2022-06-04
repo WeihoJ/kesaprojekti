@@ -6,7 +6,7 @@ const BSInfo = () => {
     return (
         <div>
             {/* Video osuus */}
-            <div class="video-background" style={{marginBottom:-6}}>
+            <div class="video-background" style={{ marginBottom: -6 }}>
                 <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop">
                     <source src={Video} type="video/mp4"></source>
                 </video>
@@ -22,7 +22,7 @@ const BSInfo = () => {
                 {/* Meistä */}
                 <div class="row">
                     <div class="col col1">
-                        <h3 style={{paddingTop:10}}>Meistä</h3>
+                        <h3 style={{ paddingTop: 10 }}>Meistä</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem fugiat esse neque incidunt vero quis ex eligendi laboriosam tempore! Fugit ducimus fuga hic ea corrupti nulla. Blanditiis accusantium impedit ad.</p>
                         <br />
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A iusto nihil vel reiciendis quam doloremque. Neque, quibusdam. Maxime quas ad neque soluta nihil nam, ipsum placeat explicabo doloribus, accusamus voluptatibus!</p>
@@ -30,14 +30,14 @@ const BSInfo = () => {
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus iure dicta dignissimos eos hic tempore aliquam, laboriosam, consectetur necessitatibus minima ducimus alias harum nisi eveniet illum ut distinctio deleniti impedit?</p>
                     </div>
 
-                    <div class="col col2">
+                    <div class="col col2 kuva">
                         <img src={Kuva1} class="img-fluid rounded"></img>
                     </div>
                 </div>
 
                 {/* Historia */}
                 <div class="row">
-                    <div class="col col1">
+                    <div class="col col1 kuva">
                         <img src={Kuva1} class="img-fluid rounded"></img>
                     </div>
 
@@ -66,8 +66,8 @@ const BSInfo = () => {
                     {/* Tavara 1 */}
                     <div class="carousel-item active">
                         <div class="row">
-                            <div class="col">
-                                <img src={Kuva1} class="img-fluid KKuva" alt="..."></img>
+                            <div class="col col4">
+                                <img src={Kuva1} class="KKuva" alt="..."></img>
                             </div>
                             <div class="col col3">
                                 <h3>Referenssi 1</h3>
@@ -81,8 +81,8 @@ const BSInfo = () => {
                     {/* Tavara 2 */}
                     <div class="carousel-item">
                         <div class="row">
-                            <div class="col">
-                                <img src={Kuva1} class="d-block w-100" alt="..."></img>
+                            <div class="col col4">
+                                <img src={Kuva1} class="KKuva" alt="..."></img>
                             </div>
                             <div class="col col3">
                                 <h3>Referenssi 2</h3>
@@ -96,8 +96,8 @@ const BSInfo = () => {
                     {/* Tavara 3 */}
                     <div class="carousel-item">
                         <div class="row">
-                            <div class="col">
-                                <img src={Kuva1} class="d-block w-100" alt="..."></img>
+                            <div class="col col4">
+                                <img src={Kuva1} class="KKuva" alt="..."></img>
                             </div>
                             <div class="col col3">
                                 <h3>Referenssi 3</h3>
@@ -120,6 +120,38 @@ const BSInfo = () => {
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
+            </div>
+
+            {/* Palvelut osuus */}
+            <div class="container-fluid palvelut">
+                {/* Otsikko */}
+                <div class="text-center POtsikko">
+                    <h1>Palvelut</h1>
+                </div>
+
+                <div class="row text-center PRivi">
+
+                    {/* Tavara 1 */}
+                    <div class="col col5">
+                        <h3>Palvelu 1</h3>
+                    </div>
+
+                    {/* Tavara 2 */}
+                    <div class="col col5">
+                        <h3>Palvelu 2</h3>
+
+                    </div>
+
+                    {/* Tavara 3 */}
+                    <div class="col col5">
+                        <h3>Palvelu 3</h3>
+                    </div>
+
+                    {/* Tavara 4 */}
+                    <div class="col col5">
+                        <h3>Palvelu 4</h3>
+                    </div>
+                </div>
             </div>
         </div>
 

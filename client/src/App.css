@@ -87,15 +87,45 @@ h1 {
     margin-right: 100px;
 }
 
+.kuva img {
+    margin-top: 50px;
+}
+
 /* Karuselli */
 .col3 {
     background-color: var(--color-secondary);
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
-.col KKuva {
+.col4 {
+    padding-right: 0 !important;
+}
+
+.KKuva {
     width: 100%;
+    height: 100%;
 }
 
+/* Palvelut */
+.palvelut {
+    background-color: var(--color-primary);
+}
+
+.POtsikko {
+    padding: 20px 0px;
+}
+
+.PRivi {
+    margin: 0px 40px !important;
+}
+
+.col5 {
+    background-color: var(--color-neutral);
+    margin: 0px 2.5px !important;
+}
+
+/* Responsiivisuus */
 @media only screen and (max-width: 870px) {
     .caption{
         margin-top:-100px;
