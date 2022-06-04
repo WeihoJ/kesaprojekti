@@ -83,7 +83,7 @@ const App = () => {
                 <Router>
                         <Routes>
                             <Route exact path="/kaikkiKayttajat" element={<Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>}></Route>
-                            <Route exact path="/koti" element={<Koti/>}></Route>
+                            <Route exact path="" element={<Koti/>}></Route>
                         </Routes>
                 </Router>
                 <Login />
