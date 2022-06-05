@@ -46,7 +46,11 @@ h1 {
 /* Navbar */
 .nav-item a{
     color: var(--color-neutral)
-};
+}
+
+.nav-item {
+    margin: 0px 5px;
+}
 
 /* Video */
 .video-background { 
@@ -94,8 +98,11 @@ h1 {
 /* Karuselli */
 .col3 {
     background-color: var(--color-secondary);
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 6.5px !important;
+}
+
+.colText {
+    padding: 50px;
 }
 
 .col4 {
@@ -107,9 +114,16 @@ h1 {
     height: 100%;
 }
 
+.carousel-indicators button {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 100% !important;
+  }
+
 /* Palvelut */
 .palvelut {
     background-color: var(--color-primary);
+    padding-bottom: 50px;
 }
 
 .POtsikko {
@@ -123,6 +137,11 @@ h1 {
 .col5 {
     background-color: var(--color-neutral);
     margin: 0px 2.5px !important;
+    padding: 1rem 0px;
+}
+
+.list {
+    margin-bottom: 0;
 }
 
 /* Responsiivisuus */

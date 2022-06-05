@@ -70,10 +70,12 @@ const BSInfo = () => {
                                 <img src={Kuva1} class="KKuva" alt="..."></img>
                             </div>
                             <div class="col col3">
-                                <h3>Referenssi 1</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At fugit ad autem, asperiores cum sequi necessitatibus eveniet, excepturi quis exercitationem iure ducimus voluptatum iusto magni quam obcaecati suscipit perspiciatis alias. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae officia dolore aut, tempore natus maiores et tenetur iste! Odit dolorum cumque eveniet commodi veniam nemo dolor minus iure quam! Eveniet.</p>
-                                <br />
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit quaerat eveniet sunt voluptatem. Aperiam, inventore magni commodi vel ullam recusandae tempore. Ab voluptatibus a unde sapiente magnam saepe, incidunt distinctio?</p>
+                                <div class="colText">
+                                    <h3>Referenssi 1</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At fugit ad autem, asperiores cum sequi necessitatibus eveniet, excepturi quis exercitationem iure ducimus voluptatum iusto magni quam obcaecati suscipit perspiciatis alias. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae officia dolore aut, tempore natus maiores et tenetur iste! Odit dolorum cumque eveniet commodi veniam nemo dolor minus iure quam! Eveniet.</p>
+                                    <br />
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit quaerat eveniet sunt voluptatem. Aperiam, inventore magni commodi vel ullam recusandae tempore. Ab voluptatibus a unde sapiente magnam saepe, incidunt distinctio?</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -85,10 +87,12 @@ const BSInfo = () => {
                                 <img src={Kuva1} class="KKuva" alt="..."></img>
                             </div>
                             <div class="col col3">
-                                <h3>Referenssi 2</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At fugit ad autem, asperiores cum sequi necessitatibus eveniet, excepturi quis exercitationem iure ducimus voluptatum iusto magni quam obcaecati suscipit perspiciatis alias. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae officia dolore aut, tempore natus maiores et tenetur iste! Odit dolorum cumque eveniet commodi veniam nemo dolor minus iure quam! Eveniet.</p>
-                                <br />
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit quaerat eveniet sunt voluptatem. Aperiam, inventore magni commodi vel ullam recusandae tempore. Ab voluptatibus a unde sapiente magnam saepe, incidunt distinctio?</p>
+                                <div class="colText">
+                                    <h3>Referenssi 2</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At fugit ad autem, asperiores cum sequi necessitatibus eveniet, excepturi quis exercitationem iure ducimus voluptatum iusto magni quam obcaecati suscipit perspiciatis alias. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae officia dolore aut, tempore natus maiores et tenetur iste! Odit dolorum cumque eveniet commodi veniam nemo dolor minus iure quam! Eveniet.</p>
+                                    <br />
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit quaerat eveniet sunt voluptatem. Aperiam, inventore magni commodi vel ullam recusandae tempore. Ab voluptatibus a unde sapiente magnam saepe, incidunt distinctio?</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -100,10 +104,12 @@ const BSInfo = () => {
                                 <img src={Kuva1} class="KKuva" alt="..."></img>
                             </div>
                             <div class="col col3">
-                                <h3>Referenssi 3</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At fugit ad autem, asperiores cum sequi necessitatibus eveniet, excepturi quis exercitationem iure ducimus voluptatum iusto magni quam obcaecati suscipit perspiciatis alias. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae officia dolore aut, tempore natus maiores et tenetur iste! Odit dolorum cumque eveniet commodi veniam nemo dolor minus iure quam! Eveniet.</p>
-                                <br />
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit quaerat eveniet sunt voluptatem. Aperiam, inventore magni commodi vel ullam recusandae tempore. Ab voluptatibus a unde sapiente magnam saepe, incidunt distinctio?</p>
+                                <div class="colText">
+                                    <h3>Referenssi 3</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At fugit ad autem, asperiores cum sequi necessitatibus eveniet, excepturi quis exercitationem iure ducimus voluptatum iusto magni quam obcaecati suscipit perspiciatis alias. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae officia dolore aut, tempore natus maiores et tenetur iste! Odit dolorum cumque eveniet commodi veniam nemo dolor minus iure quam! Eveniet.</p>
+                                    <br />
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit quaerat eveniet sunt voluptatem. Aperiam, inventore magni commodi vel ullam recusandae tempore. Ab voluptatibus a unde sapiente magnam saepe, incidunt distinctio?</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -129,27 +135,153 @@ const BSInfo = () => {
                     <h1>Palvelut</h1>
                 </div>
 
-                <div class="row text-center PRivi">
+                <div class="row PRivi">
 
                     {/* Tavara 1 */}
                     <div class="col col5">
                         <h3>Palvelu 1</h3>
+                        <p>
+                            Nunc eget diam et eros iaculis
+                            ornare. Nunc diam dui, venenatis eu
+                            tellus et, fermentum dictum felis.
+                            Sed semper lectus id facilisis
+                            viverra. Phasellus sit amet magna id
+                            lectus cursus vulputate. Quisque
+                            augue leo, ornare eu mattis quis,
+                            dignissim a erat.
+                        </p>
+                        <ul class="list">
+                            <li>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Dolore reiciendis qui quasi sunt quo harum aperiam molestiae nobis in beatae vero similique earum, ab quisquam atque a ullam nam! Eos?
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Accusantium incidunt consequatur consequuntur maxime.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Blanditiis porro laudantium eligendi atque repellendus inventore soluta ipsam sequi eaque nisi perferendis.
+                            </li>
+                        </ul>
                     </div>
 
                     {/* Tavara 2 */}
                     <div class="col col5">
                         <h3>Palvelu 2</h3>
-
+                        <p>
+                            Nunc eget diam et eros iaculis
+                            ornare. Nunc diam dui, venenatis eu
+                            tellus et, fermentum dictum felis.
+                            Sed semper lectus id facilisis
+                            viverra.
+                        </p>
+                        <ul class="list">
+                            <li>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Dolore reiciendis qui quasi sunt quo harum aperiam molestiae nobis in beatae vero similique earum, ab quisquam atque a ullam nam! Eos?
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Accusantium incidunt consequatur consequuntur maxime.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Blanditiis porro laudantium eligendi atque repellendus inventore soluta ipsam sequi eaque nisi perferendis.
+                            </li>
+                        </ul>
                     </div>
 
                     {/* Tavara 3 */}
                     <div class="col col5">
                         <h3>Palvelu 3</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur suscipit repudiandae perferendis mollitia! Reiciendis ex quae beatae iste quidem possimus deleniti eius pariatur repellat quo. Aliquid, labore. Ipsa, blanditiis dolore? Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <ul class="list">
+                            <li>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Dolore reiciendis qui quasi sunt quo harum aperiam molestiae nobis in beatae vero similique earum, ab quisquam atque a ullam nam! Eos?
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Accusantium incidunt consequatur consequuntur maxime.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Blanditiis porro laudantium eligendi atque repellendus inventore soluta ipsam sequi eaque nisi perferendis.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Dolore reiciendis qui quasi sunt quo harum aperiam molestiae nobis in beatae vero similique earum, ab quisquam atque a ullam nam! Eos?
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Accusantium incidunt consequatur consequuntur maxime.
+                            </li>
+                        </ul>
                     </div>
 
                     {/* Tavara 4 */}
                     <div class="col col5">
                         <h3>Palvelu 4</h3>
+                        <p>
+                            Nunc eget diam et eros iaculis
+                            ornare. Nunc diam dui, venenatis eu
+                            tellus et, fermentum dictum felis.
+                            Sed semper lectus id facilisis
+                            viverra.
+
+                            Phasellus sit amet magna id lectus
+                            cursus vulputate. Quisque augue
+                            leo, ornare eu mattis quis, dignissim
+                            a erat. Orci varius natoque penatibus
+                            et magnis dis parturient montes,
+                            nascetur ridiculus mus.
+                        </p>
+                        <ul class="list">
+                            <li>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Dolore reiciendis qui quasi sunt quo harum aperiam molestiae nobis in beatae vero similique earum, ab quisquam atque a ullam nam! Eos?
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Accusantium incidunt consequatur consequuntur maxime.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Blanditiis porro laudantium eligendi atque repellendus inventore soluta ipsam sequi eaque nisi perferendis.
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
