@@ -9,9 +9,8 @@ import Login from "./components/Login.js";
 import Register from "./components/Register.js";
 import Footer from "./components/Footer";
 import Testi from "./components/testi";
-import Koti from "./pages/koti"
-import { BrowserRouter as Router,Route, Routes, Link} from "react-router-dom";
-
+import Koti from "./pages/koti";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 const App = () => {
     const [fetchData, setFetchData] = useState([]);
@@ -34,13 +33,12 @@ const App = () => {
     //         .then((response) => setPyyntoFetchData(response.data))
     //         .catch((error) => console.log(error));
     // }, []);
-    
 
     useEffect(() => {
         axios.get("http://localhost:3001/api/checklogin").then((response) => {
             // console.log(response.data.loggedIn);
             if (response.data.loggedIn) {
-                console.log(response.data)
+                console.log(response.data);
                 setIsLoggedIn(true);
                 setLoggedUser(response.data.user);
                 setLoggedUserRole(response.data.userRole);
@@ -58,46 +56,42 @@ const App = () => {
         });
     }
 
-    if (isLoggedIn) {
-        return (
-            <div>
-                <BSNavbar />
-                 <Router>
-                        <Routes>
-                        <Route exact path="/kaikkiKayttajat" element={<Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>}></Route>
-                            <Route exact path="" element={<Koti/>}></Route>
-                            <Route exact path="rekisteroidy" element={<Register/>}></Route>
-                            <Route exact path="kirjaudu" element={<Login/>}></Route>
-                        </Routes>
-                </Router>
-                <h3>Kirjautunut käyttäjällä <span className="bold">{loggedUser}</span>, käyttäjän rooli <span className="bold">{loggedUserRole}</span></h3>
-                {/* <Register />
-                <button onClick={logout} >Kirjaudu ulos</button> */}
-                {/* <Login /> */}
-                <Footer navLink={pyyntoFetchData}/>
-            </div>
-        );
-    } else {
-        return (
-            <div>
-                <BSNavbar />
-                <Router>
-                        <Routes>
-                            <Route exact path="/kaikkiKayttajat" element={<Navbar navLink={fetchData} isLoggedIn={isLoggedIn}/>}></Route>
-                            <Route exact path="" element={<Koti/>}></Route>
-                            <Route exact path="rekisteroidy" element={<Register/>}></Route>
-                            <Route exact path="kirjaudu" element={<Login/>}></Route>
-
-                        </Routes>
-                </Router>
-                {/* <Login />
-                <Register /> */}
+    return (
+        <div>
+            <BSNavbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} logout={logout} />
+            <Router>
+                <Routes>
+                    <Route
+                        exact
+                        path="/kaikkiKayttajat"
+                        element={
+                            <Navbar
+                                navLink={fetchData}
+                                isLoggedIn={isLoggedIn}
+                            />
+                        }
+                    ></Route>
+                    <Route exact path="" element={<Koti />}></Route>
+                    <Route
+                        exact
+                        path="rekisteroidy"
+                        element={<Register />}
+                    ></Route>
+                    <Route exact path="kirjaudu" element={<Login />}></Route>
+                </Routes>
+            </Router>
+            {isLoggedIn ? (
+                <h3>
+                    Kirjautunut käyttäjällä{" "}
+                    <span className="bold">{loggedUser}</span>, käyttäjän rooli{" "}
+                    <span className="bold">{loggedUserRole}</span>
+                </h3>
+            ) : (
                 <h3>Ei kirjautunut</h3>
-
-                <Footer navLink={pyyntoFetchData}/>
-            </div>
-        );
-    }
+            )}
+            <Footer navLink={pyyntoFetchData} />
+        </div>
+    );
 };
 
 export default App;

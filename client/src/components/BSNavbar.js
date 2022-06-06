@@ -1,12 +1,22 @@
 import React from "react";
 import Logo from "../assets/img/logo/Logo dark.png";
 import "../App.css";
+import axios from "axios";
 
-const BSNavbar = () => {
+const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
+    
+    axios.defaults.withCredentials = true;
+
+    function logout() {
+        axios.post("http://localhost:3001/api/logout").then((response) => {
+            setIsLoggedIn(false);
+        });
+    }
+
     return (
         <nav class="navbar navbar-expand-lg fixed-top bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand text-warning" href="#">
+                <a class="navbar-brand text-warning" href="/">
                     <img src={Logo} alt="" />
                 </a>
                 <button
@@ -20,14 +30,13 @@ const BSNavbar = () => {
                 >
                     <span class="navbar-toggler-icon bg-light"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-md-end" id="navbarNavDropdown">
+                <div
+                    class="collapse navbar-collapse justify-content-md-end"
+                    id="navbarNavDropdown"
+                >
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                aria-current="page"
-                                href="#"
-                            >
+                            <a class="nav-link" aria-current="page" href="/">
                                 Etusivu
                             </a>
                         </li>
@@ -36,11 +45,32 @@ const BSNavbar = () => {
                                 Esimerkkisivu
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <button type="button" class="btn btn-outline-warning">
-                                Kirjaudu
-                            </button>
-                        </li>
+
+                        {isLoggedIn ? (
+                            <li class="nav-item">
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-warning"
+                                    onClick={logout}
+                                >
+                                        Kirjaudu ulos
+                                </button>
+                            </li>
+                        ) : (
+                            <li class="nav-item">
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-warning"
+                                >
+                                    <a
+                                        href="/kirjaudu"
+                                        className="removeUnderline"
+                                    >
+                                        Kirjaudu sisään
+                                    </a>
+                                </button>
+                            </li>
+                        )}
                     </ul>
                 </div>
             </div>

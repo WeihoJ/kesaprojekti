@@ -9,6 +9,9 @@
     --color-neutral: #FFF9F5;
 }
 
+.removeUnderline {
+    text-decoration: none;
+}
 
 .primary {
     color: var(--color-primary);
