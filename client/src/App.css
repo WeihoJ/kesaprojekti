@@ -47,7 +47,7 @@ h1 {
 }
 
 /* Navbar */
-.nav-item a{
+.nav-item a {
     color: var(--color-neutral)
 }
 
@@ -56,7 +56,7 @@ h1 {
 }
 
 /* Video */
-.video-background { 
+.video-background {
     position: relative;
 }
 
@@ -71,7 +71,7 @@ h1 {
     color: var(--color-neutral);
 }
 
-.caption h1{
+.caption h1 {
     color: var(--color-neutral);
     padding-bottom: 100px;
 }
@@ -121,7 +121,7 @@ h1 {
     width: 10px !important;
     height: 10px !important;
     border-radius: 100% !important;
-  }
+}
 
 /* Palvelut */
 .palvelut {
@@ -149,21 +149,25 @@ h1 {
 
 /* Responsiivisuus */
 @media only screen and (max-width: 870px) {
-    .caption{
-        margin-top:-100px;
+    .caption {
+        margin-top: -100px;
     }
-    .btn{
-        margin-top:-150px;
+
+    .btn {
+        margin-top: -150px;
     }
-  }
-  @media only screen and (max-width: 700px) {
-      .caption{
-          margin-top:-100px; 
-      }
-    .btn{
-        margin-top:-100px;
+}
+
+@media only screen and (max-width: 700px) {
+    .caption {
+        margin-top: -100px;
     }
-  }
-  section{
-      margin-top:5em;
-  }
+
+    .btn {
+        margin-top: -100px;
+    }
+}
+
+section {
+    margin-top: 5em;
+}
