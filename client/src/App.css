@@ -147,7 +147,90 @@ h1 {
     margin-bottom: 0;
 }
 
+/* Footer */
+footer {
+    background-color: var(--color-neutral);
+    padding: 0px 100px;
+}
+
+.FOtsikko {
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.footerimg {
+    background-image: url("./assets/img/logo/Logo\ dark.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: var(--color-neutral);
+    height: 3em;
+}
+
+ol {
+    list-style: none;
+    padding: 0px !important;
+}
+
+.formi {
+    text-align: right;
+}
+
+.footerinput {
+    width: 20rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.formbutton {
+    color: var(--color-neutral);
+    background-color: black;
+    border-radius: 5px;
+}
+
+.copyright {
+    padding-bottom: 15px;
+    padding-top: 30px;
+}
+
+.linkNoDec {
+    text-decoration: none;
+    color: black;
+}
+
+.linkNoDec:hover {
+    color: black;
+}
+
 /* Responsiivisuus */
+@media only screen and (max-width: 1000px) {
+
+    /* Footer */
+    .footerinput {
+        width: 15rem;
+    }
+
+    footer {
+        padding: 0px 50px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    /* Footer */
+    footer {
+        padding: 0px 20px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /* Footer */
+    .formi {
+        text-align: center;
+    }
+}
+
 @media only screen and (max-width: 870px) {
     .caption {
         margin-top: -100px;
