@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {Link } from "react-router-dom";
+
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -29,18 +31,18 @@ const Login = () => {
     };
 
     return (
-        <section className="hero has-background-grey-light is-fullheight is-fullwidth">
+        <section className="hero has-background-grey-light is-fullheight is-fullwidth p-5 text-center">
             <div className="hero-body">
                 <div className="container">
                     <div className="columns is-centered">
                         <div className="column is-4-desktop">
                             <form
                                 onSubmit={Auth}
-                                className="box border border-primary"
+                                className="box border border-primary p-3"
                                 >
                                 <h1>KIRJAUDU SISÄÄN</h1>
                                 <p className="has-text-centered">{msg}</p>
-                                <div className="field mt-5">
+                                <div className="field mt-3">
                                     <label className="label">
                                         Email or Username
                                     </label>
@@ -82,6 +84,8 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            
+            <label className="mt-3"><Link to="/rekisteroidy">Ei käyttäjää? Rekisteröidy</Link></label>
         </section>
     );
 };

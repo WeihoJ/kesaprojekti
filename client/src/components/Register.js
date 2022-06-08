@@ -48,14 +48,14 @@ const Register = () => {
     };
 
     return (
-        <section className="hero has-background-grey-light is-fullheight is-fullwidth">
-            <div className="hero-body">
+        <section className="hero has-background-grey-light is-fullheight is-fullwidth text-center">
+            <div className="hero-body p-4">
                 <div className="container">
                     <div className="columns is-centered">
                         <div className="column is-4-desktop">
                             <form
                                 onSubmit={Register}
-                                className="box border border-warning"
+                                className="box border border-warning p-5"
                             >
                                 <h1>REGISTER NEW USER</h1>
                                 <p className="has-text-centered">{msg}</p>
