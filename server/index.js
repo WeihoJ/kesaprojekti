@@ -101,7 +101,10 @@ app.post("/login", (req, res) => {
 app.post("/register", (req, res) => {
     const name = req.body.name;
     const password = req.body.password;
-    const role = req.body.role;
+    let role = req.body.role;
+    if(role==""||role==null||role==" "){
+        role="user";
+    }
 
     varasto
         .lisaaKayttaja(name, password, role)

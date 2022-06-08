@@ -45,7 +45,7 @@ const Login = () => {
                                 <p className="has-text-centered">{msg}</p>
                                 <div className="field mt-3">
                                     <label className="label">
-                                        Email or Username
+                                        Username
                                     </label>
                                     <div className="controls">
                                         <input
