@@ -46,7 +46,7 @@ const Footer = (tiedot) => {
                 </div>
 
                 <div class="row">
-                    <div class="col">
+                    <div class="col order-sm-first order-last">
                         <div class="footerimg">_</div>
                         <ol>
                             <li>

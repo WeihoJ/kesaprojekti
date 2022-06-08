@@ -204,7 +204,8 @@ ol {
 }
 
 /* Responsiivisuus */
-@media only screen and (max-width: 1000px) {
+/* Large */
+@media only screen and (max-width: 992px) {
 
     /* Footer */
     .footerinput {
@@ -216,7 +217,8 @@ ol {
     }
 }
 
-@media only screen and (max-width: 800px) {
+/* Medium */
+@media only screen and (max-width: 768px) {
 
     /* Footer */
     footer {
@@ -224,10 +226,37 @@ ol {
     }
 }
 
-@media only screen and (max-width: 600px) {
+/* Small */
+@media only screen and (max-width: 576px) {
+    /* Navbar */
+    .navbar .container-fluid {
+        padding: 0 !important;
+    }
+
     /* Footer */
+    footer {
+        padding: 0;
+    }
+
+    .footerimg {
+        display: block;
+        width: 300px;
+        margin: 40px auto;
+    }
+
     .formi {
         text-align: center;
+    }
+
+    .footerinput {
+        width: 20rem;
+    }
+}
+
+/* Oma responsiivisuus */
+@media only screen and (max-width: 871.20px) {
+    .navbar {
+        height: auto;
     }
 }
 

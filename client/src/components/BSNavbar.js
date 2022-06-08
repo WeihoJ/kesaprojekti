@@ -4,7 +4,7 @@ import "../App.css";
 import axios from "axios";
 
 const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
-    
+
     axios.defaults.withCredentials = true;
 
     function logout() {
@@ -20,7 +20,7 @@ const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
                     <img src={Logo} alt="" />
                 </a>
                 <button
-                    class="navbar-toggler"
+                    class="navbar-toggler justify-content-end"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown"
@@ -53,7 +53,7 @@ const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
                                     class="btn btn-outline-warning"
                                     onClick={logout}
                                 >
-                                        Kirjaudu ulos
+                                    Kirjaudu ulos
                                 </button>
                             </li>
                         ) : (
