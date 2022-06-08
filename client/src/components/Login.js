@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import {Link } from "react-router-dom";
-
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -19,10 +17,13 @@ const Login = () => {
             setMsg("Password is required");
         } else {
             try {
-                const vastaus = await axios.post("http://localhost:3001/login", {
-                    username,
-                    password,
-                });
+                const vastaus = await axios.post(
+                    "http://localhost:3001/login",
+                    {
+                        username,
+                        password,
+                    }
+                );
                 setMsg(vastaus.data.message);
             } catch (error) {
                 console.log(error);
@@ -39,7 +40,7 @@ const Login = () => {
                             <form
                                 onSubmit={Auth}
                                 className="box border border-primary p-3"
-                                >
+                            >
                                 <h1>KIRJAUDU SISÄÄN</h1>
                                 <p className="has-text-centered">{msg}</p>
                                 <div className="field mt-3">
@@ -84,8 +85,10 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-            
-            <label className="mt-3"><Link to="/rekisteroidy">Ei käyttäjää? Rekisteröidy</Link></label>
+
+            <label className="mt-3">
+                <a href="/rekisteroidy">Ei käyttäjää? Rekisteröidy</a>
+            </label>
         </section>
     );
 };
