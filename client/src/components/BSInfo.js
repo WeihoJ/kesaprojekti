@@ -6,13 +6,13 @@ const BSInfo = () => {
     return (
         <div>
             {/* Video osuus */}
-            <div class="video-background" style={{ marginBottom: -6 }}>
+            <div class="video-background">
                 <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop">
                     <source src={Video} type="video/mp4"></source>
                 </video>
 
                 <div class="caption text-center">
-                    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+                    <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a pretium ex.</h1>
                     <a class="btn btn-outline-light btn-lg" href="#course">Lue lisää</a>
                 </div>
             </div>

@@ -1,6 +1,5 @@
 import React from "react";
 import Logo from "../assets/img/logo/Logo dark.png";
-import "../App.css";
 import axios from "axios";
 
 const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {

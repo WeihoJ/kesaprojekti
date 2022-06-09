@@ -58,10 +58,14 @@ h1 {
 /* Video */
 .video-background {
     position: relative;
+    margin-bottom: -6px;
+    height: auto;
 }
 
 .video-background video {
-    width: 100%;
+    width: 100% !important;
+    height: 100%;
+    object-fit: cover;
 }
 
 .caption {
@@ -69,6 +73,7 @@ h1 {
     top: 38%;
     width: 100%;
     color: var(--color-neutral);
+    padding: 0px 150px;
 }
 
 .caption h1 {
@@ -206,6 +211,10 @@ ol {
 /* Responsiivisuus */
 /* Large */
 @media only screen and (max-width: 992px) {
+    /* Video */
+    .video-background {
+        height: 500px;
+    }
 
     /* Footer */
     .footerinput {
@@ -257,26 +266,6 @@ ol {
 @media only screen and (max-width: 871.20px) {
     .navbar {
         height: auto;
-    }
-}
-
-@media only screen and (max-width: 870px) {
-    .caption {
-        margin-top: -100px;
-    }
-
-    .btn {
-        margin-top: -150px;
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    .caption {
-        margin-top: -100px;
-    }
-
-    .btn {
-        margin-top: -100px;
     }
 }
 
