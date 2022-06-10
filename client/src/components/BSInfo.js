@@ -13,16 +13,16 @@ const BSInfo = () => {
 
                 <div class="caption text-center">
                     <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a pretium ex.</h1>
-                    <a class="btn btn-outline-light btn-lg" href="#course">Lue lisää</a>
+                    <a class="btn btn-outline-light btn-lg captionBtn" href="#course">Lue lisää</a>
                 </div>
             </div>
 
             {/* Info osuus */}
             <div class="container-fluid info">
                 {/* Meistä */}
-                <div class="row">
-                    <div class="col col1">
-                        <h3 style={{ paddingTop: 10 }}>Meistä</h3>
+                <div class="row align-items-center">
+                    <div class="col col1 order-sm-first order-last">
+                        <h3>Meistä</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem fugiat esse neque incidunt vero quis ex eligendi laboriosam tempore! Fugit ducimus fuga hic ea corrupti nulla. Blanditiis accusantium impedit ad.</p>
                         <br />
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A iusto nihil vel reiciendis quam doloremque. Neque, quibusdam. Maxime quas ad neque soluta nihil nam, ipsum placeat explicabo doloribus, accusamus voluptatibus!</p>
@@ -30,14 +30,14 @@ const BSInfo = () => {
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus iure dicta dignissimos eos hic tempore aliquam, laboriosam, consectetur necessitatibus minima ducimus alias harum nisi eveniet illum ut distinctio deleniti impedit?</p>
                     </div>
 
-                    <div class="col col2 kuva">
+                    <div class="col col2 IKuva">
                         <img src={Kuva1} class="img-fluid rounded"></img>
                     </div>
                 </div>
 
                 {/* Historia */}
                 <div class="row">
-                    <div class="col col1 kuva">
+                    <div class="col col1 IKuva">
                         <img src={Kuva1} class="img-fluid rounded"></img>
                     </div>
 

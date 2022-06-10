@@ -78,13 +78,21 @@ h1 {
 
 .caption h1 {
     color: var(--color-neutral);
-    padding-bottom: 100px;
+}
+
+.captionBtn {
+    margin-top: 100px;
+    width: 200px;
 }
 
 /* Info */
 .info {
     background-color: var(--color-primary);
     margin: 0px;
+}
+
+.col1 h3 {
+    padding-top: 10px;
 }
 
 .col1 {
@@ -97,10 +105,6 @@ h1 {
     padding: 50px 0px;
     margin-left: 50px;
     margin-right: 100px;
-}
-
-.kuva img {
-    margin-top: 50px;
 }
 
 /* Karuselli */
@@ -211,9 +215,30 @@ ol {
 /* Responsiivisuus */
 /* Large */
 @media only screen and (max-width: 992px) {
+
     /* Video */
     .video-background {
         height: 500px;
+    }
+
+    .caption {
+        padding: 0px 100px;
+    }
+
+    .captionBtn {
+        margin-top: 100px;
+        width: 350px;
+    }
+
+    /* Info */
+    .col1 {
+        margin-left: 50px;
+        margin-right: 25px;
+    }
+
+    .col2 {
+        margin-left: 25px;
+        margin-right: 50px;
     }
 
     /* Footer */
@@ -229,6 +254,22 @@ ol {
 /* Medium */
 @media only screen and (max-width: 768px) {
 
+    /* Video */
+    .caption {
+        padding: 0px 50px;
+    }
+
+    /* Info */
+    .col1 {
+        margin-left: 25px;
+        margin-right: 10px;
+    }
+
+    .col2 {
+        margin-left: 10px;
+        margin-right: 25px;
+    }
+
     /* Footer */
     footer {
         padding: 0px 20px;
@@ -237,9 +278,35 @@ ol {
 
 /* Small */
 @media only screen and (max-width: 576px) {
+
     /* Navbar */
     .navbar .container-fluid {
         padding: 0 !important;
+    }
+
+    /* Video */
+    .caption {
+        padding: 0px 0px;
+    }
+
+    /* Info */
+    .info {
+        padding: 50px 24px;
+    }
+
+    .col1 {
+        padding: 0;
+        margin: 0;
+    }
+
+    .col2 {
+        padding: 5px 15% !important;
+        margin: 0;
+    }
+
+    .IKuva {
+        display: block;
+        width: 300px;
     }
 
     /* Footer */
@@ -259,13 +326,6 @@ ol {
 
     .footerinput {
         width: 20rem;
-    }
-}
-
-/* Oma responsiivisuus */
-@media only screen and (max-width: 871.20px) {
-    .navbar {
-        height: auto;
     }
 }
 
