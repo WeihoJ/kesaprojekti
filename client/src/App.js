@@ -38,7 +38,6 @@ const App = () => {
         axios.get("http://localhost:3001/api/checklogin").then((response) => {
             // console.log(response.data.loggedIn);
             if (response.data.loggedIn) {
-                console.log(response.data);
                 setIsLoggedIn(true);
                 setLoggedUser(response.data.user);
                 setLoggedUserRole(response.data.userRole);
@@ -58,10 +57,14 @@ const App = () => {
 
     return (
         <div>
-            <BSNavbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} logout={logout} />
+            <BSNavbar
+                isLoggedIn={isLoggedIn}
+                setIsLoggedIn={setIsLoggedIn}
+                logout={logout}
+            />
             <Router>
                 <Routes>
-                    <Route
+                    {/* <Route
                         exact
                         path="/kaikkiKayttajat"
                         element={
@@ -70,7 +73,7 @@ const App = () => {
                                 isLoggedIn={isLoggedIn}
                             />
                         }
-                    ></Route>
+                    ></Route> */}
                     <Route exact path="" element={<Koti />}></Route>
                     <Route
                         exact
@@ -78,6 +81,16 @@ const App = () => {
                         element={<Register />}
                     ></Route>
                     <Route exact path="kirjaudu" element={<Login />}></Route>
+                    <Route
+                        exact
+                        path="adminPaneeli"
+                        element={
+                            <Navbar
+                                navLink={fetchData}
+                                isLoggedIn={isLoggedIn}
+                            />
+                        }
+                    ></Route>
                 </Routes>
             </Router>
             {isLoggedIn ? (

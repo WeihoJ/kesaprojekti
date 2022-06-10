@@ -13,7 +13,7 @@ const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
     }
 
     return (
-        <nav class="navbar navbar-expand-lg fixed-top bg-dark">
+        <nav class="navbar navbar-expand-lg bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand text-warning" href="/">
                     <img src={Logo} alt="" />
@@ -44,6 +44,7 @@ const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
                                 Esimerkkisivu
                             </a>
                         </li>
+                        
 
                         {isLoggedIn ? (
                             <li class="nav-item">
@@ -54,7 +55,14 @@ const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
                                 >
                                     Kirjaudu ulos
                                 </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-warning"
+                                >
+                                    <a href="/adminPaneeli" className="removeUnderline">&#9881;</a>
+                                </button>
                             </li>
+                            
                         ) : (
                             <li class="nav-item">
                                 <button
