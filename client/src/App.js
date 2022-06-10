@@ -8,6 +8,7 @@ import axios from "axios";
 import Login from "./components/Login.js";
 import Register from "./components/Register.js";
 import Footer from "./components/Footer";
+import Intra from "./components/Intra";
 import Testi from "./components/testi";
 import Koti from "./pages/koti";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
@@ -81,19 +82,27 @@ const App = () => {
                         element={<Register />}
                     ></Route>
                     <Route exact path="kirjaudu" element={<Login />}></Route>
-                    <Route
-                        exact
-                        path="adminPaneeli"
-                        element={
-                            <Navbar
-                                navLink={fetchData}
-                                isLoggedIn={isLoggedIn}
-                            />
-                        }
-                    ></Route>
+                    {isLoggedIn ? (
+                        <Route
+                            exact
+                            path="intranet"
+                            element={
+                                <Intra
+                                    navLink={fetchData}
+                                    isLoggedIn={isLoggedIn}
+                                />
+                            }
+                        ></Route>
+                    ) : (
+                        <Route
+                            exact
+                            path="intranet"
+                            element={<Login />}
+                        ></Route>
+                    )}
                 </Routes>
             </Router>
-            {isLoggedIn ? (
+            {/* {isLoggedIn ? (
                 <h3>
                     Kirjautunut käyttäjällä{" "}
                     <span className="bold">{loggedUser}</span>, käyttäjän rooli{" "}
@@ -101,7 +110,7 @@ const App = () => {
                 </h3>
             ) : (
                 <h3>Ei kirjautunut</h3>
-            )}
+            )} */}
             <Footer navLink={pyyntoFetchData} />
         </div>
     );

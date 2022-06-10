@@ -4,18 +4,6 @@ import "./Navbar.css";
 const Navbar = (props) => {
     return (
         <div>
-            {/* <ul className="navbar-nav">
-                {props.navLink.map((user) => {
-                    return (
-                        <li className="nav-item" key={user.kayttajaid}>
-                            <p className="userid">Käyttäjän id: <span>{user.kayttajaid}</span></p>
-                            <p className="username">Käyttäjänimi: <span>{user.kayttajanimi}</span></p>
-                            <p className="password">Salasana: <span>{user.salasana}</span></p>
-                        </li>
-                    );
-                })}
-            </ul> */}
-
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -31,12 +19,11 @@ const Navbar = (props) => {
                             <tr key={user.kayttajaid}>
                                 <th scope="row">{user.kayttajaid}</th>
                                 <td>{user.kayttajanimi}</td>
-                                <td>{user.salasana}</td>
+                                <td>{"*".repeat(Math.floor(Math.random() * (10 - 5)) + 5)}</td>
                                 <td>{user.rooli}</td>
                             </tr>
                         );
                     })}
-                    
                 </tbody>
             </table>
         </div>

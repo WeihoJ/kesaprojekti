@@ -59,7 +59,7 @@ const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
                                     type="button"
                                     class="btn btn-outline-warning"
                                 >
-                                    <a href="/adminPaneeli" className="removeUnderline">&#9881;</a>
+                                    <a href="/intranet" className="removeUnderline">Intranet</a>
                                 </button>
                             </li>
                             
