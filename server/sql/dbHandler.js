@@ -156,5 +156,20 @@ module.exports = class Tietovarasto {
             }
         });
     }
+    kuvaaTaulukot() {
+        return new Promise(async (resolve, reject) => {
+            try {
+                let b=[];
+                b.push(await this.db.runQuery("describe yhteydenottopyynnot", []));
+                b.push(await this.db.runQuery("describe kayttajat", []));
+                // b.push(await this.db.runQuery("SELECT * FROM information_schema.columns WHERE table_schema = 's2000966_3';", []));
+
+                resolve(b);
+            } catch (virhe) {
+                console.log(virhe);
+                reject(virhe);
+            }
+        });
+    };
 };
 

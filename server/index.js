@@ -135,6 +135,14 @@ app.post("/yhteydenotto", (req, res) => {
         });
 });
 
+app.get("/kuvaa", (req, res) => {
+    varasto.kuvaaTaulukot()
+    .then((tulos) => {res.send(tulos);})
+    .catch((err) => {console.log(err);
+        res.send(err);
+        });
+});
+
 app.listen(port, host, () => {
     console.log(`Palvelin käynnistyi portissa ${port}`);
 });
