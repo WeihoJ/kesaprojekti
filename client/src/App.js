@@ -26,7 +26,7 @@ const App = () => {
         axios
             .get("http://localhost:3001/api")
             .then((response) => setFetchData(response.data))
-            .catch((error) => console.log(error));
+            .catch((error) => console.log("Palvelin ei päällä tai ei anna vastausta api pyyntöön" + error));
     }, []);
     // useEffect(() => {
     //     axios
@@ -47,7 +47,7 @@ const App = () => {
                 setLoggedUser("");
                 setLoggedUserRole("");
             }
-        });
+        }).catch((error) => console.log("Palvelin ei päällä tai ei anna vastausta api pyyntöön" + error));
     }, []);
 
     function logout() {
