@@ -299,14 +299,12 @@ ol {
         margin: 0;
     }
 
-    .col2 {
-        padding: 5px 15% !important;
-        margin: 0;
+    .IKuva {
+        padding: 0;
     }
 
-    .IKuva {
-        display: block;
-        width: 300px;
+    .IKuva img {
+        min-width: 350px;
     }
 
     /* Footer */

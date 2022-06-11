@@ -13,7 +13,7 @@ const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
     }
 
     return (
-        <nav class="navbar navbar-expand-lg bg-dark">
+        <nav class="navbar navbar-expand-lg bg-dark fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand text-warning" href="/">
                     <img src={Logo} alt="" />

@@ -21,7 +21,7 @@ const BSInfo = () => {
             <div class="container-fluid info">
                 {/* Meistä */}
                 <div class="row align-items-center">
-                    <div class="col col1 order-sm-first order-last">
+                    <div class="col col1">
                         <h3>Meistä</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem fugiat esse neque incidunt vero quis ex eligendi laboriosam tempore! Fugit ducimus fuga hic ea corrupti nulla. Blanditiis accusantium impedit ad.</p>
                         <br />
@@ -36,8 +36,8 @@ const BSInfo = () => {
                 </div>
 
                 {/* Historia */}
-                <div class="row">
-                    <div class="col col1 IKuva">
+                <div class="row align-items-center">
+                    <div class="col col1 IKuva order-sm-first order-last">
                         <img src={Kuva1} class="img-fluid rounded"></img>
                     </div>
 
