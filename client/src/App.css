@@ -241,6 +241,11 @@ ol {
         margin-right: 50px;
     }
 
+    /* Karuselli */
+    .colText {
+        padding: 20px;
+    }
+
     /* Footer */
     .footerinput {
         width: 15rem;
@@ -268,6 +273,11 @@ ol {
     .col2 {
         margin-left: 10px;
         margin-right: 25px;
+    }
+
+    /* Karuselli */
+    .colText {
+        padding: 10px;
     }
 
     /* Footer */
@@ -299,13 +309,24 @@ ol {
         margin: 0;
     }
 
+    .col2 {
+        padding: 0;
+        margin: 0;
+    }
+
     .IKuva {
         padding: 0;
     }
 
     .IKuva img {
-        min-width: 350px;
+        min-width: 400px;
     }
+
+    .HRow {
+        margin-top: 50px !important;
+    }
+
+    /* Karuselli */
 
     /* Footer */
     footer {
@@ -324,6 +345,14 @@ ol {
 
     .footerinput {
         width: 20rem;
+    }
+}
+
+/* Omat responsiivisuudet */
+@media only screen and (max-width: 450px)  {
+    /* Info */
+    .IKuva img {
+        min-width: 350px;
     }
 }
 

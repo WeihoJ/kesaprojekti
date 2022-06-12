@@ -36,7 +36,7 @@ const BSInfo = () => {
                 </div>
 
                 {/* Historia */}
-                <div class="row align-items-center">
+                <div class="row align-items-center HRow">
                     <div class="col col1 IKuva order-sm-first order-last">
                         <img src={Kuva1} class="img-fluid rounded"></img>
                     </div>
@@ -65,8 +65,8 @@ const BSInfo = () => {
 
                     {/* Tavara 1 */}
                     <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col col4">
+                        <div class="row row-cols-1 row-cols-md-2">
+                            <div class="col col4 order-md-first order-last">
                                 <img src={Kuva1} class="KKuva" alt="..."></img>
                             </div>
                             <div class="col col3">
@@ -82,8 +82,8 @@ const BSInfo = () => {
 
                     {/* Tavara 2 */}
                     <div class="carousel-item">
-                        <div class="row">
-                            <div class="col col4">
+                        <div class="row row-cols-1 row-cols-md-2">
+                            <div class="col col4 order-md-first order-last">
                                 <img src={Kuva1} class="KKuva" alt="..."></img>
                             </div>
                             <div class="col col3">
@@ -99,8 +99,8 @@ const BSInfo = () => {
 
                     {/* Tavara 3 */}
                     <div class="carousel-item">
-                        <div class="row">
-                            <div class="col col4">
+                        <div class="row row-cols-1 row-cols-md-2">
+                            <div class="col col4 order-md-first order-last">
                                 <img src={Kuva1} class="KKuva" alt="..."></img>
                             </div>
                             <div class="col col3">
