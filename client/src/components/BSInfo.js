@@ -13,12 +13,12 @@ const BSInfo = () => {
 
                 <div class="caption text-center">
                     <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a pretium ex.</h1>
-                    <a class="btn btn-outline-light btn-lg captionBtn" href="#course">Lue lisää</a>
+                    <a class="btn btn-outline-light btn-lg captionBtn" href="#info">Lue lisää</a>
                 </div>
             </div>
 
             {/* Info osuus */}
-            <div class="container-fluid info">
+            <div id="info" class="container-fluid info">
                 {/* Meistä */}
                 <div class="row align-items-center">
                     <div class="col col1">
