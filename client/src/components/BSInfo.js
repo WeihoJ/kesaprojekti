@@ -136,7 +136,6 @@ const BSInfo = () => {
                 </div>
 
                 <div class="row PRivi">
-
                     {/* Tavara 1 */}
                     <div class="col col5">
                         <h3>Palvelu 1</h3>

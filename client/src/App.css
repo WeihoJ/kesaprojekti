@@ -254,6 +254,11 @@ ol {
     footer {
         padding: 0px 50px;
     }
+
+    /* Palvelut */
+    .PRivi {
+        margin: 0 0px !important;
+    }
 }
 
 /* Medium */
@@ -283,6 +288,11 @@ ol {
     /* Footer */
     footer {
         padding: 0px 20px;
+    }
+
+    /* Palvelut */
+    .PRivi {
+        display: none !important;
     }
 }
 
