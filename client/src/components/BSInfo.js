@@ -138,7 +138,11 @@ const BSInfo = () => {
                 <div class="row PRivi">
                     {/* Tavara 1 */}
                     <div class="col col5">
-                        <h3>Palvelu 1</h3>
+                        <h3 class="accordion-header" id="flush-headingOne">Palvelu 1
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                Palvelu 1
+                            </button>
+                        </h3>
                         <p>
                             Nunc eget diam et eros iaculis
                             ornare. Nunc diam dui, venenatis eu
