@@ -139,7 +139,7 @@ const BSInfo = () => {
                 <div class="accordion accordion-flush" id="accordionFlushExample">
 
                     {/* Palvelu 1 */}
-                    <div class="accordion-item">
+                    <div class="accordion-item" style={{border:0}}>
                         <h2 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                 <h3>Palvelu 1</h3>
@@ -182,7 +182,7 @@ const BSInfo = () => {
                     </div>
 
                     {/* Palvelu 2 */}
-                    <div class="accordion-item">
+                    <div class="accordion-item" style={{border:0}}>
                         <h2 class="accordion-header" id="flush-headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                                 <h3>Palvelu 2</h3>
@@ -222,7 +222,7 @@ const BSInfo = () => {
                     </div>
 
                     {/* Palvelu 3 */}
-                    <div class="accordion-item">
+                    <div class="accordion-item" style={{border:0}}>
                         <h2 class="accordion-header" id="flush-headingThree">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                                 <h3>Palvelu 3</h3>
@@ -271,7 +271,7 @@ const BSInfo = () => {
                     </div>
 
                     {/* Palvelu 4 */}
-                    <div class="accordion-item">
+                    <div class="accordion-item" style={{border:0}}>
                         <h2 class="accordion-header" id="flush-headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
                                 <h3>Palvelu 4</h3>
