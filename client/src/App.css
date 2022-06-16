@@ -135,7 +135,8 @@ h1 {
 /* Palvelut */
 .palvelut {
     background-color: var(--color-primary);
-    padding-bottom: 50px;
+    padding: 0 !important;
+    padding-bottom: 1px !important;
 }
 
 .POtsikko {
@@ -154,6 +155,37 @@ h1 {
 
 .list {
     margin-bottom: 0;
+}
+
+.accordion-item {
+    padding-bottom: 10px;
+    background: var(--color-primary) !important;
+}
+
+.accordion-header {
+    background: var(--color-primary);
+}
+
+.accordion-button {
+    color: var(--color-texts) !important;
+    background: var(--color-neutral) !important;
+    box-shadow: none !important;
+    max-width: 500px;
+    margin: auto;
+}
+
+.accordion-button[aria-expanded="true"] {
+    background: var(--color-neutral) !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23212529%27%3e%3cpath fill-rule=%27evenodd%27 d=%27M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e") !important;
+}
+
+.accordion-collapse {
+    background: var(--color-neutral) !important;
+    max-width: 500px;
+    margin: auto;
 }
 
 /* Footer */
@@ -359,7 +391,8 @@ ol {
 }
 
 /* Omat responsiivisuudet */
-@media only screen and (max-width: 450px)  {
+@media only screen and (max-width: 450px) {
+
     /* Info */
     .IKuva img {
         min-width: 350px;
