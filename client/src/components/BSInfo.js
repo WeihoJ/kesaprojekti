@@ -135,11 +135,11 @@ const BSInfo = () => {
                     <h1>Palvelut</h1>
                 </div>
 
-                {/* Testi 1 */}
+                {/* Mobiili versio */}
                 <div class="accordion accordion-flush" id="accordionFlushExample">
 
                     {/* Palvelu 1 */}
-                    <div class="accordion-item" style={{border:0}}>
+                    <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                 <h3>Palvelu 1</h3>
@@ -182,7 +182,7 @@ const BSInfo = () => {
                     </div>
 
                     {/* Palvelu 2 */}
-                    <div class="accordion-item" style={{border:0}}>
+                    <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                                 <h3>Palvelu 2</h3>
@@ -222,7 +222,7 @@ const BSInfo = () => {
                     </div>
 
                     {/* Palvelu 3 */}
-                    <div class="accordion-item" style={{border:0}}>
+                    <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingThree">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                                 <h3>Palvelu 3</h3>
@@ -271,7 +271,7 @@ const BSInfo = () => {
                     </div>
 
                     {/* Palvelu 4 */}
-                    <div class="accordion-item" style={{border:0}}>
+                    <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
                                 <h3>Palvelu 4</h3>
@@ -315,6 +315,157 @@ const BSInfo = () => {
                                 </ul>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                {/* Desktop versio */}
+                <div class="row PRivi">
+
+                    {/* Tavara 1 */}
+                    <div class="col col5">
+                        <h3>Palvelu 1</h3>
+                        <p>
+                            Nunc eget diam et eros iaculis
+                            ornare. Nunc diam dui, venenatis eu
+                            tellus et, fermentum dictum felis.
+                            Sed semper lectus id facilisis
+                            viverra. Phasellus sit amet magna id
+                            lectus cursus vulputate. Quisque
+                            augue leo, ornare eu mattis quis,
+                            dignissim a erat.
+                        </p>
+                        <ul class="list">
+                            <li>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Dolore reiciendis qui quasi sunt quo harum aperiam molestiae nobis in beatae vero similique earum, ab quisquam atque a ullam nam! Eos?
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Accusantium incidunt consequatur consequuntur maxime.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Blanditiis porro laudantium eligendi atque repellendus inventore soluta ipsam sequi eaque nisi perferendis.
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Tavara 2 */}
+                    <div class="col col5">
+                        <h3>Palvelu 2</h3>
+                        <p>
+                            Nunc eget diam et eros iaculis
+                            ornare. Nunc diam dui, venenatis eu
+                            tellus et, fermentum dictum felis.
+                            Sed semper lectus id facilisis
+                            viverra.
+                        </p>
+                        <ul class="list">
+                            <li>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Dolore reiciendis qui quasi sunt quo harum aperiam molestiae nobis in beatae vero similique earum, ab quisquam atque a ullam nam! Eos?
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Accusantium incidunt consequatur consequuntur maxime.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Blanditiis porro laudantium eligendi atque repellendus inventore soluta ipsam sequi eaque nisi perferendis.
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Tavara 3 */}
+                    <div class="col col5">
+                        <h3>Palvelu 3</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur suscipit repudiandae perferendis mollitia! Reiciendis ex quae beatae iste quidem possimus deleniti eius pariatur repellat quo. Aliquid, labore. Ipsa, blanditiis dolore? Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <ul class="list">
+                            <li>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Dolore reiciendis qui quasi sunt quo harum aperiam molestiae nobis in beatae vero similique earum, ab quisquam atque a ullam nam! Eos?
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Accusantium incidunt consequatur consequuntur maxime.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Blanditiis porro laudantium eligendi atque repellendus inventore soluta ipsam sequi eaque nisi perferendis.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Dolore reiciendis qui quasi sunt quo harum aperiam molestiae nobis in beatae vero similique earum, ab quisquam atque a ullam nam! Eos?
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Accusantium incidunt consequatur consequuntur maxime.
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Tavara 4 */}
+                    <div class="col col5">
+                        <h3>Palvelu 4</h3>
+                        <p>
+                            Nunc eget diam et eros iaculis
+                            ornare. Nunc diam dui, venenatis eu
+                            tellus et, fermentum dictum felis.
+                            Sed semper lectus id facilisis
+                            viverra.
+
+                            Phasellus sit amet magna id lectus
+                            cursus vulputate. Quisque augue
+                            leo, ornare eu mattis quis, dignissim
+                            a erat. Orci varius natoque penatibus
+                            et magnis dis parturient montes,
+                            nascetur ridiculus mus.
+                        </p>
+                        <ul class="list">
+                            <li>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Dolore reiciendis qui quasi sunt quo harum aperiam molestiae nobis in beatae vero similique earum, ab quisquam atque a ullam nam! Eos?
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Accusantium incidunt consequatur consequuntur maxime.
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li>
+                                Blanditiis porro laudantium eligendi atque repellendus inventore soluta ipsam sequi eaque nisi perferendis.
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

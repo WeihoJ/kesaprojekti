@@ -144,7 +144,7 @@ h1 {
 }
 
 .PRivi {
-    margin: 0px 40px !important;
+    margin: 0 100px 40px !important;
 }
 
 .col5 {
@@ -160,6 +160,7 @@ h1 {
 .accordion-item {
     padding-bottom: 10px;
     background: var(--color-primary) !important;
+    border: 0 !important;
 }
 
 .accordion-header {
@@ -278,6 +279,11 @@ ol {
         padding: 20px;
     }
 
+    /* Palvelut */
+    .PRivi {
+        margin: 0 40px 40px !important;
+    }
+
     /* Footer */
     .footerinput {
         width: 15rem;
@@ -285,11 +291,6 @@ ol {
 
     footer {
         padding: 0px 50px;
-    }
-
-    /* Palvelut */
-    .PRivi {
-        margin: 0 0px !important;
     }
 }
 
@@ -368,8 +369,6 @@ ol {
         margin-top: 50px !important;
     }
 
-    /* Karuselli */
-
     /* Footer */
     footer {
         padding: 0;
@@ -396,6 +395,12 @@ ol {
     /* Info */
     .IKuva img {
         min-width: 350px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .accordion {
+        display: none !important;
     }
 }
 
