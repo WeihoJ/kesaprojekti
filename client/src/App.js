@@ -9,7 +9,6 @@ import Login from "./components/Login.js";
 import Register from "./components/Register.js";
 import Footer from "./components/Footer";
 import Intra from "./components/Intra";
-import Testi from "./components/testi";
 import Koti from "./pages/koti";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
