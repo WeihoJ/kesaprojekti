@@ -10,6 +10,7 @@ import Register from "./components/Register.js";
 import Footer from "./components/Footer";
 import Intra from "./components/Intra";
 import Koti from "./pages/koti";
+import Blogs from "./components/Blogs";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 const App = () => {
@@ -80,6 +81,7 @@ const App = () => {
                         path="rekisteroidy"
                         element={<Register />}
                     ></Route>
+                    <Route exact path="blog" element={<Blogs />}></Route>
                     <Route exact path="kirjaudu" element={<Login />}></Route>
                     {isLoggedIn ? (
                         <Route

@@ -45,6 +45,14 @@ h1 {
     font-size: 56px;
     font-weight: bold;
 }
+.blogi{
+    margin-bottom:7em !important;
+    margin:10px;
+    padding:2em;
+}
+.margintop{
+    margin-top:10em;
+}
 
 /* Navbar */
 .nav-item a {
