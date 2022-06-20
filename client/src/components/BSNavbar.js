@@ -50,14 +50,14 @@ const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
                             <li class="nav-item">
                                 <button
                                     type="button"
-                                    class="btn btn-outline-warning"
+                                    class="btn"
                                     onClick={logout}
                                 >
                                     Kirjaudu ulos
                                 </button>
                                 <button
                                     type="button"
-                                    class="btn btn-outline-warning"
+                                    class="btn"
                                 >
                                     <a href="/intranet" className="removeUnderline">Intranet</a>
                                 </button>
@@ -67,7 +67,7 @@ const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
                             <li class="nav-item">
                                 <button
                                     type="button"
-                                    class="btn btn-outline-warning"
+                                    class="btn"
                                 >
                                     <a
                                         href="/kirjaudu"
