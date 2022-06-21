@@ -10,10 +10,6 @@
     --color-neutral: #FFF9F5;
 }
 
-.removeUnderline {
-    text-decoration: none;
-}
-
 .primary {
     color: var(--color-primary);
 }
@@ -38,14 +34,39 @@
     color: var(--color-neutral);
 }
 
+/* Tekstin muodot */
+
 span.bold {
     font-weight: bold;
 }
 
 h1 {
     font-size: 56px;
-    font-weight: bold;
+    font-weight: bold !important;
 }
+
+h2 {
+    font-size: 32px;
+    font-weight: bold !important;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: bold !important;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: bold !important;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--color-texts);
+}
+
+/* Muut tärkeät */
 
 .blogi{
     margin-bottom:7em !important;
@@ -55,6 +76,10 @@ h1 {
 
 .margintop{
     margin-top:10em;
+}
+
+.removeUnderline {
+    text-decoration: none;
 }
 
 /* Navbar */
@@ -109,9 +134,21 @@ h1 {
     color: var(--color-neutral);
 }
 
-.captionBtn {
+.caption .btn {
     margin-top: 100px;
     width: 200px;
+}
+
+.caption .btn {
+    color: var(--color-secondary) !important;
+    background-color: var(--color-neutral);
+    border-color: var(--color-secondary);
+    border-width: 3px;
+}
+
+.caption .btn:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-neutral) !important;
 }
 
 /* Info */

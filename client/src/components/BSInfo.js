@@ -13,7 +13,7 @@ const BSInfo = () => {
 
                 <div class="caption text-center">
                     <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a pretium ex.</h1>
-                    <a class="btn btn-outline-light btn-lg captionBtn" href="#info">Lue lisää</a>
+                    <a class="btn btn-lg captionBtn" href="#info">Lue lisää</a>
                 </div>
             </div>
 
