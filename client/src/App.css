@@ -5,6 +5,7 @@
     --color-primary: #086BA8;
     --color-secondary: #0096F5;
     --color-highlights: #AD4900;
+    --color-highlights-hover: #ad3100c9;
     --color-texts: #054065;
     --color-neutral: #FFF9F5;
 }
@@ -34,7 +35,7 @@
 }
 
 .neutral {
-    color: var(--color-neutral)
+    color: var(--color-neutral);
 }
 
 span.bold {
@@ -45,11 +46,13 @@ h1 {
     font-size: 56px;
     font-weight: bold;
 }
+
 .blogi{
     margin-bottom:7em !important;
     margin:10px;
     padding:2em;
 }
+
 .margintop{
     margin-top:10em;
 }
@@ -61,6 +64,23 @@ h1 {
 
 .nav-item {
     margin: 0px 5px;
+}
+
+.nav-link:hover {
+    text-decoration: underline !important;
+    color: var(--color-highlights) !important;
+}
+
+.nav-item .btn {
+    background-color: var(--color-highlights);
+}
+
+.nav-item .btn a {
+    color: var(--color-neutral) !important;
+}
+
+.nav-item .btn:hover {
+    background-color: var(--color-highlights-hover);
 }
 
 /* Video */
