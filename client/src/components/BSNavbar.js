@@ -40,8 +40,8 @@ const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/koira">
-                                Esimerkkisivu
+                            <a class="nav-link" href="/blog">
+                                Blogit
                             </a>
                         </li>
 
