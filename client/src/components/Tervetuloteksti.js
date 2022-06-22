@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Tervetuloteksti = (props) => {
-    const { tervetuloTeksti, setTervetuloTeksti } = useState(
+    const [ tervetuloTeksti, setTervetuloTeksti ] = useState(
         "Tervetuloa sivullemme"
     );
     console.log(tervetuloTeksti);
