@@ -33,7 +33,6 @@ module.exports = class Tietovarasto {
             try {
                 const tulos = await this.db.runQuery(sql.haeKaikkiPyynnot, []);
                 if (tulos) {
-                    console.log(await tulos);
                     resolve(tulos);
                 } else {
                     reject("Ei löytyny");
@@ -43,7 +42,27 @@ module.exports = class Tietovarasto {
                 reject(virhe);
             }
         });
-    };
+    }
+    
+    haeTervetulo() {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const tulos = await this.db.runQuery(sql.haeTervetulo, []);
+                
+                if (tulos.length == 0) {
+                    reject({
+                        status: "virheellinen",
+                        virhe: "Tervetuloviestiä ei ole olemassa",
+                    });
+                } else {
+                    resolve({ status: "oikein", tervetuloviesti: tulos[0].teksti });
+                }
+            } catch (virhe) {
+                console.log(virhe);
+                reject(virhe);
+            }
+        });
+    }
 
     tarkistaKirjautuminen(username, password) {
         return new Promise(async (resolve, reject) => {
@@ -147,9 +166,16 @@ module.exports = class Tietovarasto {
                 } else if (typeof viesti === "undefined" || viesti === "") {
                     reject({ message: "Viesti puuttuu" });
                 } else {
-                    await this.db.runQuery(sql.lisaaYhteydenottopyynto, [nimi, puhnro, sposti, viesti]);
-                        resolve({ message: "Yhteydenottopyyntö jätetty onnistuneesti" });
-                    }
+                    await this.db.runQuery(sql.lisaaYhteydenottopyynto, [
+                        nimi,
+                        puhnro,
+                        sposti,
+                        viesti,
+                    ]);
+                    resolve({
+                        message: "Yhteydenottopyyntö jätetty onnistuneesti",
+                    });
+                }
             } catch (virhe) {
                 console.log(virhe);
                 reject(virhe);
@@ -159,8 +185,10 @@ module.exports = class Tietovarasto {
     kuvaaTaulukot() {
         return new Promise(async (resolve, reject) => {
             try {
-                let b=[];
-                b.push(await this.db.runQuery("describe yhteydenottopyynnot", []));
+                let b = [];
+                b.push(
+                    await this.db.runQuery("describe yhteydenottopyynnot", [])
+                );
                 b.push(await this.db.runQuery("describe kayttajat", []));
                 // b.push(await this.db.runQuery("SELECT * FROM information_schema.columns WHERE table_schema = 's2000966_3';", []));
 
@@ -170,6 +198,5 @@ module.exports = class Tietovarasto {
                 reject(virhe);
             }
         });
-    };
+    }
 };
-

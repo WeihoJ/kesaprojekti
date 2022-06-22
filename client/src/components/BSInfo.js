@@ -1,7 +1,10 @@
 import React from "react";
 import Kuva1 from "../assets/img/unsplash images/neonbrand-60krlMMeWxU-unsplash.jpg";
 import Video from "../assets/video/background-video.mp4";
+import Tervetuloteksti from "./Tervetuloteksti";
 import "../App.css"
+
+
 const BSInfo = () => {
     return (
         <div>
@@ -12,7 +15,8 @@ const BSInfo = () => {
                 </video>
 
                 <div class="caption text-center">
-                    <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a pretium ex.</h1>
+                    {/* <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a pretium ex.</h1> */}
+                    <Tervetuloteksti  />
                     <a class="btn btn-lg captionBtn" href="#info">Lue lisää</a>
                 </div>
             </div>

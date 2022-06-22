@@ -52,8 +52,9 @@ app.get("/api", (req, res) => {
         });
 });
 app.get("/pyynnot", (req, res) => {
-    varasto.haePyynnot()
-            .then((tulos) => {
+    varasto
+        .haePyynnot()
+        .then((tulos) => {
             res.send(tulos);
         })
         .catch((err) => {
@@ -65,7 +66,11 @@ app.get("/pyynnot", (req, res) => {
 app.get("/api/checklogin", (req, res) => {
     if (req.session.user) {
         // console.log(req.session)
-        res.send({ loggedIn: true, user: req.session.user, userRole: req.session.userRole });
+        res.send({
+            loggedIn: true,
+            user: req.session.user,
+            userRole: req.session.userRole,
+        });
     } else {
         res.send({ loggedIn: false });
     }
@@ -76,6 +81,20 @@ app.post("/api/logout", (req, res) => {
     res.send({ loggedIn: false });
 });
 
+app.get("/api/tervetuloa", (req, res) => {
+    varasto
+        .haeTervetulo()
+        .then((tulos) => {
+            res.send(tulos);
+        })
+        .catch((err) => {
+            res.send(err);
+        });
+});
+
+app.post("/api/tervetuloa", (req, res) => {
+    console.log(req);
+});
 
 app.post("/login", (req, res) => {
     const username = req.body.username;
@@ -102,8 +121,8 @@ app.post("/register", (req, res) => {
     const name = req.body.name;
     const password = req.body.password;
     let role = req.body.role;
-    if(role==""||role==null||role==" "){
-        role="user";
+    if (role == "" || role == null || role == " ") {
+        role = "user";
     }
 
     varasto
@@ -122,10 +141,10 @@ app.post("/yhteydenotto", (req, res) => {
     const nimi = req.body.nimi;
     const puhnro = req.body.puhnro;
     const sposti = req.body.sposti;
-    const viesti=req.body.viesti;
+    const viesti = req.body.viesti;
 
     varasto
-        .lisaaYhteydenottopyynto(nimi,puhnro,sposti,viesti)
+        .lisaaYhteydenottopyynto(nimi, puhnro, sposti, viesti)
         .then((tulos) => {
             res.send(tulos);
         })
@@ -136,10 +155,14 @@ app.post("/yhteydenotto", (req, res) => {
 });
 
 app.get("/kuvaa", (req, res) => {
-    varasto.kuvaaTaulukot()
-    .then((tulos) => {res.send(tulos);})
-    .catch((err) => {console.log(err);
-        res.send(err);
+    varasto
+        .kuvaaTaulukot()
+        .then((tulos) => {
+            res.send(tulos);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send(err);
         });
 });
 

@@ -2,6 +2,7 @@
     "haeKaikki": "SELECT * FROM kayttajat",
     "haeKayttaja": "SELECT * FROM kayttajat WHERE kayttajanimi=?",
     "lisaaKayttaja": "INSERT INTO kayttajat (kayttajanimi, salasana, rooli) VALUES (?, ?, ?)",
+    "haeTervetulo": "SELECT * FROM tervetuloteksti",
 
     "lisaaYhteydenottopyynto":"INSERT INTO yhteydenottopyynnot (nimi, puhnro, sposti, viesti) VALUES (?, ?, ?, ?)",
     "haeKaikkiPyynnot":"SELECT * FROM yhteydenottopyynnot"
