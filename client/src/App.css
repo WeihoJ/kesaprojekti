@@ -68,14 +68,14 @@ p {
 
 /* Muut tärkeät */
 
-.blogi{
-    margin-bottom:7em !important;
-    margin:10px;
-    padding:2em;
+.blogi {
+    margin-bottom: 7em !important;
+    margin: 10px;
+    padding: 2em;
 }
 
-.margintop{
-    margin-top:10em;
+.margintop {
+    margin-top: 10em;
 }
 
 .removeUnderline {
@@ -83,6 +83,7 @@ p {
 }
 
 /* Navbar */
+
 .nav-item a {
     color: var(--color-neutral)
 }

@@ -19,7 +19,7 @@ const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
                     <img src={Logo} alt="" />
                 </a>
                 <button
-                    class="navbar-toggler justify-content-end"
+                    class="navbar-toggler justify-content-end navbar-dark"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown"
@@ -27,7 +27,8 @@ const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
                     aria-expanded="false"
                     aria-label="Toggle navigation"
                 >
-                    <span class="navbar-toggler-icon bg-light"></span>
+                    <span class="navbar-toggler-icon bg-dark
+                    "></span>
                 </button>
                 <div
                     class="collapse navbar-collapse justify-content-md-end"
