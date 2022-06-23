@@ -92,8 +92,11 @@ app.get("/api/tervetuloa", (req, res) => {
         });
 });
 
-app.post("/api/tervetuloa", (req, res) => {
-    console.log(req);
+app.post("/tervetuloa", (req, res) => {
+    const uusiTeksti=req.body.tervetuloteksti;
+    varasto.vaihdaTervetulo(uusiTeksti)
+    .then((tulos)=>{res.send(tulos)})
+    .catch((err)=>{res.send(err)});
 });
 
 app.post("/login", (req, res) => {

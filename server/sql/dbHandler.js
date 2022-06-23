@@ -63,6 +63,21 @@ module.exports = class Tietovarasto {
             }
         });
     }
+    vaihdaTervetulo(uusi){
+        return new Promise(async(resolve,reject)=>{
+            try{
+                const tulos=await this.db.runQuery(sql.vaihdaTervetulo,[uusi]);
+                if (tulos.length == 0) {
+                    reject("Tervetulotekstiä ei muutettu");
+                } else {
+                    resolve("Tervetuloteksti muutettiin");
+                }
+            }
+            catch(err){
+                console.log(err);
+            }
+        })
+    }
 
     tarkistaKirjautuminen(username, password) {
         return new Promise(async (resolve, reject) => {
