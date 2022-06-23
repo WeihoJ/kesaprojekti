@@ -16,7 +16,7 @@ const Login = () => {
             try {
                 const vastaus = await axios.post("http://localhost:3001/tervetuloa",{tervetuloteksti}
                 );
-                setMsg(vastaus.data.message);
+                setMsg("Tervetuloteksti muutettiin!");
             } catch (error) {
                 console.log(error);
             }
