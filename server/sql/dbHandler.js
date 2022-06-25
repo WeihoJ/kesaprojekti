@@ -28,6 +28,20 @@ module.exports = class Tietovarasto {
             }
         });
     }
+    kaikkiSivut(){
+        return new Promise(async (resolve, reject) => {
+            try {
+                const tulos = await this.db.runQuery(sql.kaikkiSivut, []);
+                if (tulos) {
+                    resolve(tulos);
+                } else {
+                    reject("Ei sivuja");
+                }
+            } catch (virhe) {
+                console.log(virhe);
+                reject(virhe);
+            }
+        })}
     haePyynnot() {
         return new Promise(async (resolve, reject) => {
             try {

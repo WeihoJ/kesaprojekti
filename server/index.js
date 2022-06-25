@@ -51,6 +51,13 @@ app.get("/api", (req, res) => {
             res.send(err);
         });
 });
+app.get("/sivut", (req, res) => {
+    varasto.kaikkiSivut()
+        .then((tulos) => {res.send(tulos)})
+        .catch((err) => {console.log(err);
+        res.send(err);
+        });
+});
 app.get("/pyynnot", (req, res) => {
     varasto
         .haePyynnot()
@@ -98,6 +105,7 @@ app.post("/tervetuloa", (req, res) => {
     .then((tulos)=>{res.send(tulos)})
     .catch((err)=>{res.send(err)});
 });
+
 
 app.post("/login", (req, res) => {
     const username = req.body.username;

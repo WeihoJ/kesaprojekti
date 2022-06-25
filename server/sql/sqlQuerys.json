@@ -7,5 +7,7 @@
     "vaihdaTervetulo":"UPDATE tervetuloteksti set teksti=?",
 
     "lisaaYhteydenottopyynto":"INSERT INTO yhteydenottopyynnot (nimi, puhnro, sposti, viesti) VALUES (?, ?, ?, ?)",
-    "haeKaikkiPyynnot":"SELECT * FROM yhteydenottopyynnot"
+    "haeKaikkiPyynnot":"SELECT * FROM yhteydenottopyynnot",
+
+    "kaikkiSivut":"SELECT * FROM sivut"
 }

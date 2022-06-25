@@ -19,6 +19,8 @@ const App = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [loggedUser, setLoggedUser] = useState("");
     const [loggedUserRole, setLoggedUserRole] = useState("");
+    const [sivutFetchData, setSivutFetchData] = useState([]);
+
 
     axios.defaults.withCredentials = true;
 
@@ -26,6 +28,12 @@ const App = () => {
         axios
             .get("http://localhost:3001/api")
             .then((response) => setFetchData(response.data))
+            .catch((error) => console.log("Palvelin ei päällä tai ei anna vastausta api pyyntöön" + error));
+    }, []);
+    useEffect(() => {
+        axios
+            .get("http://localhost:3001/sivut")
+            .then((response) => setSivutFetchData(response.data))
             .catch((error) => console.log("Palvelin ei päällä tai ei anna vastausta api pyyntöön" + error));
     }, []);
     // useEffect(() => {
@@ -91,6 +99,7 @@ const App = () => {
                                 <Intra
                                     navLink={fetchData}
                                     isLoggedIn={isLoggedIn}
+                                    sivut={sivutFetchData}
                                 />
                             }
                         ></Route>
