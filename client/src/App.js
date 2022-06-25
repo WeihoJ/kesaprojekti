@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Intra from "./components/Intra";
 import Koti from "./pages/koti";
 import Blogs from "./components/Blogs";
+import Sivutehdas from "./components/sivutehdas";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 const App = () => {
@@ -101,14 +102,19 @@ const App = () => {
                                     isLoggedIn={isLoggedIn}
                                     sivut={sivutFetchData}
                                 />
+                                
                             }
-                        ></Route>
+                        ></Route>,
+                        <Route exact path="sivutehdas" element={<Sivutehdas/>}></Route>
+                        
                     ) : (
                         <Route
                             exact
                             path="intranet"
                             element={<Login />}
-                        ></Route>
+                        ></Route>,
+                        <Route exact path="sivutehdas" element={<Login />}
+                    ></Route>
                     )}
                 </Routes>
             </Router>

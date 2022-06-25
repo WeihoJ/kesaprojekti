@@ -274,7 +274,12 @@ footer {
     color: var(--color-neutral);
     height: 3em;
 }
+.tehdasform{
+    margin:20em;
+    border: 1px solid black;
+    padding:15px;
 
+}
 ol {
     list-style: none;
     padding: 0px !important;
