@@ -9,5 +9,6 @@
     "lisaaYhteydenottopyynto":"INSERT INTO yhteydenottopyynnot (nimi, puhnro, sposti, viesti) VALUES (?, ?, ?, ?)",
     "haeKaikkiPyynnot":"SELECT * FROM yhteydenottopyynnot",
 
-    "kaikkiSivut":"SELECT * FROM sivut"
+    "kaikkiSivut":"SELECT * FROM sivut",
+    "lisaaSivu":"INSERT INTO sivut VALUES(?,?,?,?)"
 }

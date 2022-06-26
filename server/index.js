@@ -54,6 +54,7 @@ app.get("/api", (req, res) => {
 app.get("/sivut", (req, res) => {
     varasto.kaikkiSivut()
         .then((tulos) => {res.send(tulos)})
+        .then((tulos)=>console.log(tulos))
         .catch((err) => {console.log(err);
         res.send(err);
         });
@@ -69,6 +70,7 @@ app.get("/pyynnot", (req, res) => {
             res.send(err);
         });
 });
+
 
 app.get("/api/checklogin", (req, res) => {
     if (req.session.user) {
@@ -174,9 +176,25 @@ app.get("/kuvaa", (req, res) => {
         .catch((err) => {
             console.log(err);
             res.send(err);
+     
         });
 });
 
+app.post("/lisaaSivu", (req, res) => {
+    const nimi=req.body.nimi;
+    const otsikko=req.body.otsikko;
+    const teemakuva=req.body.teemakuva;
+    const url=req.body.url;
+
+    varasto.lisaaSivu(nimi,otsikko,teemakuva,url)
+        .then((tulos) => {
+            res.send(tulos);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send(err);
+        });
+});
 app.listen(port, host, () => {
     console.log(`Palvelin käynnistyi portissa ${port}`);
 });

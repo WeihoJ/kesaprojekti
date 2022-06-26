@@ -35,6 +35,7 @@ const App = () => {
         axios
             .get("http://localhost:3001/sivut")
             .then((response) => setSivutFetchData(response.data))
+            // .then(console.log(sivutFetchData))
             .catch((error) => console.log("Palvelin ei päällä tai ei anna vastausta api pyyntöön" + error));
     }, []);
     // useEffect(() => {
@@ -104,17 +105,19 @@ const App = () => {
                                 />
                                 
                             }
-                        ></Route>,
-                        <Route exact path="sivutehdas" element={<Sivutehdas/>}></Route>
-                        
+                            
+                        ></Route>
                     ) : (
                         <Route
                             exact
                             path="intranet"
                             element={<Login />}
-                        ></Route>,
-                        <Route exact path="sivutehdas" element={<Login />}
-                    ></Route>
+                        ></Route>
+                    )}
+                    {isLoggedIn ? (
+                     <Route exact path="/uusiSivu" element={<Sivutehdas/>}></Route>
+                    ) : (
+                        <Route exact path="/uusiSivu" element={<Login />}></Route>
                     )}
                 </Routes>
             </Router>

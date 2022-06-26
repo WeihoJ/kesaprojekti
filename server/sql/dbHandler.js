@@ -32,6 +32,9 @@ module.exports = class Tietovarasto {
         return new Promise(async (resolve, reject) => {
             try {
                 const tulos = await this.db.runQuery(sql.kaikkiSivut, []);
+                    // const tulos = await this.db.runQuery("DELETE FROM sivut", []);
+
+                console.log(tulos);
                 if (tulos) {
                     resolve(tulos);
                 } else {
@@ -222,6 +225,35 @@ module.exports = class Tietovarasto {
                 // b.push(await this.db.runQuery("SELECT * FROM information_schema.columns WHERE table_schema = 's2000966_3';", []));
 
                 resolve(b);
+            } catch (virhe) {
+                console.log(virhe);
+                reject(virhe);
+            }
+        });
+    }
+
+
+    lisaaSivu(nimi, otsikko, teemakuva, url) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                if (typeof nimi === "undefined" || nimi === "") {
+                    reject("Nimi puuttuu" );
+                } else if (typeof otsikko === "undefined" || otsikko === "") {
+                    reject("Otsikko puuttuu");
+                }
+                else if (typeof teemakuva === "undefined" || teemakuva === "") {
+                    reject("Teemakuva puuttuu");
+                }
+                else if (typeof url === "undefined" || url === "") {
+                    reject("url puuttuu");
+                } else {
+                    await this.db.runQuery(sql.lisaaSivu, [
+                        nimi,url,otsikko,teemakuva
+                    ]);
+                    resolve({
+                        message: "Sivu luotu",
+                    });
+                }
             } catch (virhe) {
                 console.log(virhe);
                 reject(virhe);

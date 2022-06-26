@@ -1,14 +1,7 @@
 import React from "react";
 
-const Sisaltosivut = (sivut) => {
+const Sisaltosivut = (props) => {
 
-const testisivut=[
-    {
-        sivun_nimi:"testinimi",
-        sivun_url:"http://localhost:3000/blog"
-
-    }
-]
 return (
     <div>
         <table class="table table-striped">
@@ -19,7 +12,7 @@ return (
                 </tr>
             </thead>
             <tbody>
-                {testisivut.map((sivu) => {
+                {props.sivut.map((sivu) => {
                     return (
                         <tr key={sivu.sivun_nimi}>
                             <th scope="row">{sivu.sivun_nimi}</th>
@@ -29,7 +22,7 @@ return (
                 })}
             </tbody>
         </table>
-                <button href="/uusiSivu">Tee uusi sivu (ei toimi)</button>
+                <a href="/uusiSivu"><button>Tee uusi sivu</button></a>
     </div>
 )
 };
