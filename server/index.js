@@ -54,7 +54,15 @@ app.get("/api", (req, res) => {
 app.get("/sivut", (req, res) => {
     varasto.kaikkiSivut()
         .then((tulos) => {res.send(tulos)})
-        .then((tulos)=>console.log(tulos))
+        .catch((err) => {console.log(err);
+        res.send(err);
+        });
+});
+app.get("/sivu", (req, res) => {
+    const url=req.query.url;
+console.log(url);
+    varasto.haeSivu(url) //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! EI TOIMI AAAAAAAAAAAAAAAAAAAAAAA
+        .then((tulos) => {res.send(tulos)})
         .catch((err) => {console.log(err);
         res.send(err);
         });

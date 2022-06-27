@@ -33,8 +33,6 @@ module.exports = class Tietovarasto {
             try {
                 const tulos = await this.db.runQuery(sql.kaikkiSivut, []);
                     // const tulos = await this.db.runQuery("DELETE FROM sivut", []);
-
-                console.log(tulos);
                 if (tulos) {
                     resolve(tulos);
                 } else {
@@ -45,6 +43,22 @@ module.exports = class Tietovarasto {
                 reject(virhe);
             }
         })}
+        haeSivu(url){
+            return new Promise(async (resolve, reject) => {
+                try {
+                    const tulos = await this.db.runQuery(sql.haeSivu, [url]);
+                    console.log(url);
+                    if (tulos) {
+                        resolve(tulos);
+                    } else {
+                        reject("Ei sivuja");
+                    }
+                } catch (virhe) {
+                    console.log(virhe);
+                    reject(virhe);
+                }
+            })}
+        
     haePyynnot() {
         return new Promise(async (resolve, reject) => {
             try {

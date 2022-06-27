@@ -16,7 +16,7 @@ return (
                     return (
                         <tr key={sivu.sivun_nimi}>
                             <th scope="row">{sivu.sivun_nimi}</th>
-                            <th><a href={sivu.sivun_url}>{sivu.sivun_url}</a></th>
+                            <th><a href={"sisalto/"+sivu.sivun_url}>{sivu.sivun_url}</a></th>
                         </tr>
                     );
                 })}

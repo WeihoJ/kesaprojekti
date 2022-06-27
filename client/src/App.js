@@ -12,6 +12,7 @@ import Intra from "./components/Intra";
 import Koti from "./pages/koti";
 import Blogs from "./components/Blogs";
 import Sivutehdas from "./components/sivutehdas";
+import Sisalto from "./components/Sisalto";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 const App = () => {
@@ -92,6 +93,7 @@ const App = () => {
                         element={<Register />}
                     ></Route>
                     <Route exact path="blog" element={<Blogs />}></Route>
+                    <Route path="sisalto/:url" element={<Sisalto/>}></Route>
                     <Route exact path="kirjaudu" element={<Login />}></Route>
                     {isLoggedIn ? (
                         <Route

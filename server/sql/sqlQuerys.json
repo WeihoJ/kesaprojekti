@@ -10,5 +10,6 @@
     "haeKaikkiPyynnot":"SELECT * FROM yhteydenottopyynnot",
 
     "kaikkiSivut":"SELECT * FROM sivut",
-    "lisaaSivu":"INSERT INTO sivut VALUES(?,?,?,?)"
+    "lisaaSivu":"INSERT INTO sivut VALUES(?,?,?,?)",
+    "haeSivu":"SELECT * FROM sivut WHERE sivun_url=?"
 }
