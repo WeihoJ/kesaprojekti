@@ -12,6 +12,7 @@ import Intra from "./components/Intra";
 import Koti from "./pages/koti";
 import Blogs from "./components/Blogs";
 import Sivutehdas from "./components/sivutehdas";
+import Sivutehdas2 from "./components/sivutehdas2";
 import Sisalto from "./components/Sisalto";
 import SisaltosivuPohja from "./components/SisaltosivuPohja";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
@@ -155,6 +156,19 @@ const App = () => {
                         <Route
                             exact
                             path="/uusiSivu"
+                            element={<Login />}
+                        ></Route>
+                    )}
+                    {isLoggedIn ? (
+                        <Route
+                            exact
+                            path="/uusiSivu2"
+                            element={<Sivutehdas2 />}
+                        ></Route>
+                    ) : (
+                        <Route
+                            exact
+                            path="/uusiSivu2"
                             element={<Login />}
                         ></Route>
                     )}

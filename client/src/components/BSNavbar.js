@@ -45,6 +45,11 @@ const BSNavbar = ({ isLoggedIn, setIsLoggedIn }) => {
                                 Blogit
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/uusiSivu2">
+                                A=PSIFUBA
+                            </a>
+                        </li>
 
 
                         {isLoggedIn ? (

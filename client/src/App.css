@@ -256,6 +256,11 @@ p {
     margin: auto;
 }
 
+.pikkunen {
+    width: 100px;
+    height: 80px;
+}
+
 .p-top-76 {
     padding-top: 76px;
 }
