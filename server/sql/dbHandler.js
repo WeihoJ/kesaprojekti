@@ -47,7 +47,6 @@ module.exports = class Tietovarasto {
             return new Promise(async (resolve, reject) => {
                 try {
                     const tulos = await this.db.runQuery(sql.haeSivu, [url]);
-                    console.log(url);
                     if (tulos) {
                         resolve(tulos);
                     } else {

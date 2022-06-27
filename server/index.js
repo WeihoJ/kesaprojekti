@@ -60,8 +60,7 @@ app.get("/sivut", (req, res) => {
 });
 app.get("/sivu", (req, res) => {
     const url=req.query.url;
-console.log(url);
-    varasto.haeSivu(url) //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! EI TOIMI AAAAAAAAAAAAAAAAAAAAAAA
+    varasto.haeSivu(url)
         .then((tulos) => {res.send(tulos)})
         .catch((err) => {console.log(err);
         res.send(err);

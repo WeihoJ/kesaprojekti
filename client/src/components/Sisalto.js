@@ -14,15 +14,18 @@ function Sisalto () {
     const EtsiSivu = async () => {
         
             try {
-                const sivu = await axios.get(
-                    "http://localhost:3001/sivu",[sivunUrl]
+                const sivutieto = await axios.get(
+                    "http://localhost:3001/sivu",{params: {
+                        url:sivunUrl
+                    }}
                 );
-                // setNimi(sivu.sivun_nimi);
-                // setUrl(sivu.sivun_url);
-                // setOtsikko(sivu.sivun_otsikko);
-                // setTeemakuva(sivu.teemakuva);
-                console.log(sivu);
+                const sivu=sivutieto.data[0];
 
+                setNimi(sivu.sivun_nimi);
+                setUrl(sivu.sivun_url);
+                setOtsikko(sivu.sivun_otsikko);
+                setTeemakuva(sivu.teemakuva);
+//tähän sitten kaikkea kivaa jippikajei
 
 
             } catch (error) {
@@ -33,7 +36,9 @@ function Sisalto () {
         EtsiSivu();
 
         return(
-            <div class="margintop">
+            <div class="margintop ml-5">
+                <p>{nimi}</p>
+                <p>{otsikko}</p>
 
             </div>
         )
