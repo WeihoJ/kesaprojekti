@@ -256,10 +256,15 @@ p {
     margin: auto;
 }
 
+.p-top-76 {
+    padding-top: 76px;
+}
+
 /* Footer */
 footer {
     background-color: var(--color-neutral);
     padding: 0px 100px;
+    padding-top: 76px;
 }
 
 .FOtsikko {
