@@ -6,7 +6,7 @@ function Sisalto () {
     const [nimi, setNimi] = useState("");
     const [url, setUrl] = useState("");
     const [otsikko, setOtsikko] = useState("");
-    const [teemakuva, setTeemakuva] = useState([0, 0, 0, 0, 0, 0, 0, 0]);
+    const [teemakuvaBin, setTeemakuvaBin] = useState("");
     
     const sivunUrl= useParams().url;
     axios.defaults.withCredentials = true;
@@ -24,9 +24,11 @@ function Sisalto () {
                 setNimi(sivu.sivun_nimi);
                 setUrl(sivu.sivun_url);
                 setOtsikko(sivu.sivun_otsikko);
-                setTeemakuva(sivu.teemakuva);
-//tähän sitten kaikkea kivaa jippikajei
+                setTeemakuvaBin("data:image/png;base64, "+btoa(sivu.sivun_teemakuva.data));
 
+                // setTeemakuva(sivu.sivun_teemakuva.data);
+                // console.log(sivu.sivun_teemakuva.data)
+//tähän sitten kaikkea kivaa jippikajei
 
             } catch (error) {
                 console.log(error);
@@ -39,6 +41,11 @@ function Sisalto () {
             <div class="margintop ml-5">
                 <p>{nimi}</p>
                 <p>{otsikko}</p>
+                <p>{teemakuvaBin}</p>
+                <img src={teemakuvaBin} alt="Ei vittu toimi legit hyppään kaivoon"/>
+                <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
+    AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
+        9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" />
 
             </div>
         )
