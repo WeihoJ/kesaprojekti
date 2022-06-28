@@ -73,9 +73,16 @@ p {
     margin: 10px;
     padding: 2em;
 }
-
+.sisalto{
+    margin:20px;
+    min-height:50em;
+    border:1px black dotted;
+}
 .margintop {
     margin-top: 10em;
+}
+.margintop2 {
+    margin-top: 5em;
 }
 
 .removeUnderline {
