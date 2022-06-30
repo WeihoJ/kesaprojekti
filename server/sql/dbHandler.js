@@ -273,4 +273,32 @@ module.exports = class Tietovarasto {
             }
         });
     }
+
+    muokkaa(nimi,otsikko,url){
+        return new Promise(async(resolve,reject)=>{
+            try{
+                //näillä toimii
+                let a="Egorin sivu hahaaxd";
+                let b="Njiauum";
+                //mutta tuoduilla parametreilla ei (changedRows: 0) vaikka syöttäisi täysin samat
+                //tuotu url toimii!!!! nimi ja otsikko ei
+
+
+
+                console.log(nimi.toString());
+                console.log(nimi,otsikko,url);
+                const tulos=await this.db.runQuery(sql.muokkaa,[a,b,url]);
+                console.log(tulos);
+                if (tulos.length == 0) {
+                    reject("Sivun tietoja ei muutettu");
+                } else {
+                    resolve("Sivun tiedot muutettiin");
+
+                }
+            }
+            catch(err){
+                console.log(err);
+            }
+        })
+    }
 };

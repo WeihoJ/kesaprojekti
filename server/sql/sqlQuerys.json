@@ -11,5 +11,8 @@
 
     "kaikkiSivut":"SELECT * FROM sivut",
     "lisaaSivu":"INSERT INTO sivut VALUES(?,?,?,?)",
-    "haeSivu":"SELECT * FROM sivut WHERE sivun_url=?"
+    "haeSivu":"SELECT * FROM sivut WHERE sivun_url=?",
+
+    "muokkaa":"UPDATE sivut SET sivun_nimi=?, sivun_otsikko=? WHERE sivun_url=?",
+    "selectTest":"SELECT * FROM sivut WHERE sivun_otsikko=?"
 }

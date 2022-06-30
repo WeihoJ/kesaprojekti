@@ -115,7 +115,21 @@ app.post("/tervetuloa", (req, res) => {
     .catch((err)=>{res.send(err)});
 });
 
-
+app.post("/muokkaa", (req, res) => {
+    const nimi = req.body.nimi;
+    const otsikko = req.body.otsikko;
+    const url = req.body.url;
+ 
+    
+    varasto
+        .muokkaa(nimi,otsikko,url)
+        .then((tulos) => {
+                res.send(tulos);
+        })
+        .catch((err) => {
+            res.send(err);
+        });
+});
 app.post("/login", (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
