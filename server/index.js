@@ -116,8 +116,8 @@ app.post("/tervetuloa", (req, res) => {
 });
 
 app.post("/muokkaa", (req, res) => {
-    const nimi = req.body.nimi;
-    const otsikko = req.body.otsikko;
+    const nimi = req.body.nimiM;
+    const otsikko = req.body.otsikkoM;
     const url = req.body.url;
  
     

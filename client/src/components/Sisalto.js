@@ -59,9 +59,9 @@ function Sisalto () {
         }
         const Muokkaa = async (e) => {
             e.preventDefault();
-                let nimiM=document.getElementById("nimiM").innerHTML;
-                let otsikkoM=document.getElementById("otsikkoM").innerHTML;
-                console.log(`Nimi: ${nimiM},\nOtsikko: ${otsikkoM},\nurl: ${url}`);
+                const nimiM=document.getElementById("nimiM").innerHTML;
+                const otsikkoM=document.getElementById("otsikkoM").innerHTML;
+                
                 
             if (typeof nimiM === "undefined" || nimiM === "") {
                 setMsg("Nimi tarvitaan");
@@ -71,8 +71,9 @@ function Sisalto () {
                 try {
                     const vastaus = await axios.post(
                         "http://localhost:3001/muokkaa",
-                        {nimi,otsikko,url}
-                    );
+                        {nimiM,otsikkoM,url}
+                    ).then(                    console.log(`Nimi: ${nimiM},\nOtsikko: ${otsikkoM},\nurl: ${url}`)
+                    )
                     setMsg(vastaus.data.message);
                 } catch (error) {
                     console.log(error);

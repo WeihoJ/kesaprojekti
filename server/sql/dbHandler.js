@@ -282,12 +282,11 @@ module.exports = class Tietovarasto {
                 let b="Njiauum";
                 //mutta tuoduilla parametreilla ei (changedRows: 0) vaikka syöttäisi täysin samat
                 //tuotu url toimii!!!! nimi ja otsikko ei
+console.log(nimi,otsikko,url)
 
 
 
-                console.log(nimi.toString());
-                console.log(nimi,otsikko,url);
-                const tulos=await this.db.runQuery(sql.muokkaa,[a,b,url]);
+                const tulos=await this.db.runQuery(sql.muokkaa,[nimi,otsikko,url]);
                 console.log(tulos);
                 if (tulos.length == 0) {
                     reject("Sivun tietoja ei muutettu");
