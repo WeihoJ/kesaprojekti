@@ -124,7 +124,7 @@ const App = () => {
                         );
                     })}
 
-                    <Route exact path="blog" element={<Blogs />}></Route>
+                    {/* <Route exact path="blog" element={<Blogs />}></Route> */}
                     <Route path="sisalto/:url" element={<Sisalto />}></Route>
                     <Route exact path="kirjaudu" element={<Login />}></Route>
                     {isLoggedIn ? (
