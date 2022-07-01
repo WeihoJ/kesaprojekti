@@ -11,7 +11,14 @@ function Sisalto () {
     const sivunUrl= useParams().url;
 
     //editorin muuttujat
-
+const testitekstit=[
+    {
+        teksti:"pälpätipälpäti"
+    },
+    {
+        teksti:"päläpäläpälä"
+    }
+]
     const [msg, setMsg] = useState("");
 
     axios.defaults.withCredentials = true;
@@ -57,8 +64,7 @@ function Sisalto () {
                 console.log(error);
             }
         }
-        const Muokkaa = async (e) => {
-            e.preventDefault();
+    const Muokkaa = async () => {
                 const nimiM=document.getElementById("nimiM").innerHTML;
                 const otsikkoM=document.getElementById("otsikkoM").innerHTML;
                 
@@ -72,7 +78,7 @@ function Sisalto () {
                     const vastaus = await axios.post(
                         "http://localhost:3001/muokkaa",
                         {nimiM,otsikkoM,url}
-                    ).then(                    console.log(`Nimi: ${nimiM},\nOtsikko: ${otsikkoM},\nurl: ${url}`)
+                    ).then(console.log(`Nimi: ${nimiM},\nOtsikko: ${otsikkoM},\nurl: ${url}`)
                     )
                     setMsg(vastaus.data.message);
                 } catch (error) {
@@ -80,7 +86,18 @@ function Sisalto () {
                 }
             }
         };
-        EtsiSivu();
+    const Lisaa = async(e)=>{
+        e.preventDefault();
+            let sisallot=document.getElementById("sisallot");
+            testitekstit.map((teksti)=>{
+               let osa=document.createElement("p");
+               osa.innerHTML=teksti.teksti;
+               console.log(osa);
+               sisallot.appendChild(osa) 
+            })
+        }
+
+    EtsiSivu();
 
         return(
             <div class="margintop2 sisalto ml-5" id="tr">
@@ -95,20 +112,25 @@ function Sisalto () {
                         <th scope="col">URL</th>
                         <th scope="col"><button onClick={Muokkaa}>Tallenna muutokset</button></th>
 
+
                     </tr>
                 </thead>
                 <tbody>
                     <tr key={nimi}>
                         <th scope="row" contentEditable="true" id="nimiM" name="nimi"  suppressContentEditableWarning={true}>{nimi}</th>
-                        <td contentEditable="true" id="otsikkoM" name="otsikko" suppressContentEditableWarning={true}>{otsikko}</td>
-                        <td name="url">localhost:3000/sisalto/<b>{url}</b></td>
+                        <td scope="row" contentEditable="true" id="otsikkoM" name="otsikko" suppressContentEditableWarning={true}>{otsikko}</td>
+                        <td scope="row" name="url">localhost:3000/sisalto/<b>{url}</b></td>
                     </tr>
                 </tbody>
             </table>
 
-                <img src={teemakuvaBin} alt="(teemakuva) Ei vittu toimi legit hyppään kaivoon"/></div>)
+                <img src={teemakuvaBin} alt="(teemakuva) Ei vittu toimi legit hyppään kaivoon"/>
+                <div id="sisallot"></div>
+                </div>
+                )
                 :
-                (<div><table class="table table-striped">
+                (
+                <div><table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">Sivun nimi</th>
@@ -126,9 +148,21 @@ function Sisalto () {
 
                 </tbody>
             </table>
-
+                    <div id="sisallot"></div>
                 <img src={teemakuvaBin} alt="(teemakuva) Ei vittu toimi legit hyppään kaivoon"/></div>)}
-                {/* <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
+                <hr></hr>
+
+                <form onSubmit={Lisaa}>
+                    <input type="radio" name="teksti" value="teksti"/>
+                     <label htmlFor="teksti">Teksti</label><br/>
+                    <input type="radio" name="kuva" value="kuva"/>
+                     <label htmlFor="kuva">Kuva</label><br/>
+                    <input type="radio" name="tekstijakuva" value="kuvajateksti"/>
+                     <label htmlFor="tekstijakuva">Teksti ja kuva</label><br/>
+                     <button type="submit">Lisää uusi elementti</button>
+                </form>  
+
+              {/* <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
     AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
         9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" /> */}
             </div>
