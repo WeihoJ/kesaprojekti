@@ -32,7 +32,7 @@ module.exports = class Tietovarasto {
         return new Promise(async (resolve, reject) => {
             try {
                 const tulos = await this.db.runQuery(sql.kaikkiSivut, []);
-                    // const tulos = await this.db.runQuery("DELETE FROM sivut", []);
+                    // await this.db.runQuery("insert into sivutekstit values ('Testisivu', 'Sivun teksti')", []);
                 if (tulos) {
                     resolve(tulos);
                 } else {
@@ -43,6 +43,25 @@ module.exports = class Tietovarasto {
                 reject(virhe);
             }
         })}
+        testisivut(){
+            return new Promise(async (resolve, reject) => {
+                try {
+                    const lisaaTeksti = await this.db.runQuery("INSERT INTO sivutekstit VALUES ('Testisivu','Testitekstitestitekstitestiteksti')", []);
+                    const lisaaAlaotsikko = await this.db.runQuery("INSERT INTO alaotsikot VALUES ('Testisivu','Testialaotsikko')", []);
+                    const lisaaKuvat = await this.db.runQuery("INSERT INTO sisaltokuvat VALUES ('Testisivu','binaryyesyesyesosigpwjeiogujweogju')", []);
+
+
+                        // await this.db.runQuery("insert into sivutekstit values ('Testisivu', 'Sivun teksti')", []);
+                    if (tulos) {
+                        resolve(tulos);
+                    } else {
+                        reject("Ei sivuja");
+                    }
+                } catch (virhe) {
+                    console.log(virhe);
+                    reject(virhe);
+                }
+            })}
         haeSivu(url){
             return new Promise(async (resolve, reject) => {
                 try {
@@ -57,7 +76,30 @@ module.exports = class Tietovarasto {
                     reject(virhe);
                 }
             })}
-        
+
+        haeKaikkiSivunTiedot(nimi){
+            return new Promise(async (resolve, reject) => {
+                try {
+                    const tulokset = [];
+                    const tulos1 = await this.db.runQuery(sql.haeSivunTekstit, [nimi]);
+                    const tulos2 = await this.db.runQuery(sql.haeSivunAlaotsikot, [nimi]);
+                    const tulos3 = await this.db.runQuery(sql.haeSivunKuvat, [nimi]);
+                    const tulos4 = await this.db.runQuery(sql.haeSivu, [nimi]);
+                    tulokset.push(tulos1,tulos2,tulos3,tulos4);
+
+                    if (tulokset) {
+                        resolve(tulokset);
+                        console.log(tulokset);
+                    } else {
+                        reject("Ei sivuja");
+                    }
+                } catch (virhe) {
+                    console.log(virhe);
+                    reject(virhe);
+                }
+        })
+    }
+
     haePyynnot() {
         return new Promise(async (resolve, reject) => {
             try {

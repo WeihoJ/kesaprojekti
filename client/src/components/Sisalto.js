@@ -49,12 +49,21 @@ const testitekstit=[
                         url:sivunUrl
                     }}
                 );
+
+
                 const sivu=sivutieto.data[0];
 
                 setNimi(sivu.sivun_nimi);
                 setUrl(sivu.sivun_url);
                 setOtsikko(sivu.sivun_otsikko);
                 setTeemakuvaBin("data:image/png;base64, "+btoa(sivu.sivun_teemakuva.data));
+                const kaikkiTestitiedot = await axios.get(
+                    "http://localhost:3001/haeKaikkiTiedot",{params: {
+                        nimi
+                    }}
+                );
+                
+                // console.log(kaikkiTestitiedot);
 
                 // setTeemakuva(sivu.sivun_teemakuva.data);
                 // console.log(sivu.sivun_teemakuva.data)
@@ -63,7 +72,7 @@ const testitekstit=[
             } catch (error) {
                 console.log(error);
             }
-        }
+        };
     const Muokkaa = async () => {
                 const nimiM=document.getElementById("nimiM").innerHTML;
                 const otsikkoM=document.getElementById("otsikkoM").innerHTML;
@@ -92,10 +101,11 @@ const testitekstit=[
             testitekstit.map((teksti)=>{
                let osa=document.createElement("p");
                osa.innerHTML=teksti.teksti;
+               osa.setAttribute("contenteditable",true);
                console.log(osa);
                sisallot.appendChild(osa) 
             })
-        }
+        };
 
     EtsiSivu();
 
@@ -128,7 +138,7 @@ const testitekstit=[
                 <div id="sisallot"></div>
                 </div>
                 )
-                :
+                ://-----------------------------------------------------------------------------------------------------------------
                 (
                 <div><table class="table table-striped">
                 <thead>

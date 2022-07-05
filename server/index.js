@@ -77,7 +77,29 @@ app.get("/pyynnot", (req, res) => {
             res.send(err);
         });
 });
-
+app.get("/testisivuosat", (req, res) => {
+    varasto
+        .testisivut()
+        .then((tulos) => {
+            res.send(tulos);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send(err);
+        });
+});
+app.get("/haeKaikkiTiedot", (req, res) => {
+    const nimi=req.query.nimi;
+    varasto
+        .haeKaikkiSivunTiedot(nimi)
+        .then((tulos) => {
+            res.send(tulos);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send(err);
+        });
+});
 
 app.get("/api/checklogin", (req, res) => {
     if (req.session.user) {
