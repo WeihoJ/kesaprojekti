@@ -90,8 +90,10 @@ app.get("/testisivuosat", (req, res) => {
 });
 app.get("/haeKaikkiTiedot", (req, res) => {
     const nimi=req.query.nimi;
+    const url=req.query.url;
+
     varasto
-        .haeKaikkiSivunTiedot(nimi)
+        .haeKaikkiSivunTiedot(nimi,url)
         .then((tulos) => {
             res.send(tulos);
         })

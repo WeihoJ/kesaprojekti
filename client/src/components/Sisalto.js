@@ -8,22 +8,49 @@ function Sisalto () {
     const [otsikko, setOtsikko] = useState("");
     const [teemakuvaBin, setTeemakuvaBin] = useState("");
     const [loggedUserRole, setLoggedUserRole] = useState("");
+    const [tekstit,setTekstit]=useState({});
+    const [alaotsikot,setAlaotsikot]=useState({});
+    const [kuvat,setKuvat]=useState({});
+
     const sivunUrl= useParams().url;
 
     //editorin muuttujat
-const testitekstit=[
-    {
-        teksti:"pälpätipälpäti"
-    },
-    {
-        teksti:"päläpäläpälä"
-    }
-]
+
     const [msg, setMsg] = useState("");
 
     axios.defaults.withCredentials = true;
 
     const EtsiSivu = async () => {
+    useEffect(()=>{
+        async function joo(){
+            const sivutieto = await axios.get(
+                "http://localhost:3001/sivu",{params: {
+                    url:sivunUrl
+                }}
+            );
+            const sivutiedot = await axios.get(
+                "http://localhost:3001/haeKaikkiTiedot",{params: {
+                    nimi,url
+                }}
+            );
+
+
+            const sivu=await sivutieto.data[0];
+            setNimi(await sivu.sivun_nimi);
+            setUrl(await sivu.sivun_url);
+            setOtsikko(await sivu.sivun_otsikko);
+            setTeemakuvaBin("data:image/png;base64, "+btoa(await sivu.sivun_teemakuva.data));
+            setTekstit(await sivutiedot.data[0]);
+            setAlaotsikot(await sivutiedot.data[1]);
+            setKuvat(await sivutiedot.data[2]);
+                    }
+
+                    joo();
+                    
+        
+    },[tekstit,alaotsikot,kuvat])
+
+
         useEffect(() => {
             axios
                 .get("http://localhost:3001/api/checklogin")
@@ -43,35 +70,7 @@ const testitekstit=[
                 );
         }, []);
         
-            try {
-                const sivutieto = await axios.get(
-                    "http://localhost:3001/sivu",{params: {
-                        url:sivunUrl
-                    }}
-                );
 
-
-                const sivu=sivutieto.data[0];
-
-                setNimi(sivu.sivun_nimi);
-                setUrl(sivu.sivun_url);
-                setOtsikko(sivu.sivun_otsikko);
-                setTeemakuvaBin("data:image/png;base64, "+btoa(sivu.sivun_teemakuva.data));
-                const kaikkiTestitiedot = await axios.get(
-                    "http://localhost:3001/haeKaikkiTiedot",{params: {
-                        nimi
-                    }}
-                );
-                
-                // console.log(kaikkiTestitiedot);
-
-                // setTeemakuva(sivu.sivun_teemakuva.data);
-                // console.log(sivu.sivun_teemakuva.data)
-//tähän sitten kaikkea kivaa jippikajei
-
-            } catch (error) {
-                console.log(error);
-            }
         };
     const Muokkaa = async () => {
                 const nimiM=document.getElementById("nimiM").innerHTML;
@@ -98,7 +97,7 @@ const testitekstit=[
     const Lisaa = async(e)=>{
         e.preventDefault();
             let sisallot=document.getElementById("sisallot");
-            testitekstit.map((teksti)=>{
+            kaikkiTestitiedot.map((teksti)=>{
                let osa=document.createElement("p");
                osa.innerHTML=teksti.teksti;
                osa.setAttribute("contenteditable",true);
@@ -108,7 +107,7 @@ const testitekstit=[
         };
 
     EtsiSivu();
-
+        
         return(
             <div class="margintop2 sisalto ml-5" id="tr">
             {loggedUserRole=="editor" ? (<div>
@@ -135,7 +134,9 @@ const testitekstit=[
             </table>
 
                 <img src={teemakuvaBin} alt="(teemakuva) Ei vittu toimi legit hyppään kaivoon"/>
-                <div id="sisallot"></div>
+                <div id="sisallot">
+                <p>{alaotsikot[0].teksti}</p>
+                </div>
                 </div>
                 )
                 ://-----------------------------------------------------------------------------------------------------------------
@@ -158,8 +159,17 @@ const testitekstit=[
 
                 </tbody>
             </table>
-                    <div id="sisallot"></div>
-                <img src={teemakuvaBin} alt="(teemakuva) Ei vittu toimi legit hyppään kaivoon"/></div>)}
+
+                                    <img src={teemakuvaBin} alt="(teemakuva) Ei vittu toimi legit hyppään kaivoon"/>
+                
+                                    <div id="sisallot">
+                <p>{JSON.stringify(alaotsikot)}</p>
+                <p>{JSON.stringify(tekstit)}</p>
+                <p>{JSON.stringify(kuvat)}</p>
+
+
+                </div>
+                    </div>)}
                 <hr></hr>
 
                 <form onSubmit={Lisaa}>

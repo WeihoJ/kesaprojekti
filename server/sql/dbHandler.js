@@ -77,19 +77,18 @@ module.exports = class Tietovarasto {
                 }
             })}
 
-        haeKaikkiSivunTiedot(nimi){
+        haeKaikkiSivunTiedot(nimi,url){
             return new Promise(async (resolve, reject) => {
                 try {
                     const tulokset = [];
                     const tulos1 = await this.db.runQuery(sql.haeSivunTekstit, [nimi]);
                     const tulos2 = await this.db.runQuery(sql.haeSivunAlaotsikot, [nimi]);
                     const tulos3 = await this.db.runQuery(sql.haeSivunKuvat, [nimi]);
-                    const tulos4 = await this.db.runQuery(sql.haeSivu, [nimi]);
+                    const tulos4 = await this.db.runQuery(sql.haeSivu, [url]);
                     tulokset.push(tulos1,tulos2,tulos3,tulos4);
 
                     if (tulokset) {
                         resolve(tulokset);
-                        console.log(tulokset);
                     } else {
                         reject("Ei sivuja");
                     }
