@@ -133,11 +133,11 @@ function Sisalto () {
                 </tbody>
             </table>
 
-                <img src={teemakuvaBin} alt="(teemakuva) Ei vittu toimi legit hyppään kaivoon"/>
-                <div id="sisallot">
-                <p>{alaotsikot[0].teksti}</p>
-                </div>
-                </div>
+                <img src={`data:image/jpeg;base64,/9j/${btoa(teemakuvaBin)}`} alt={`(teemakuva) ei toimi legit hyppään kaivoon\n data:image/jpeg;base64,/9j/${btoa(teemakuvaBin)}`}/>
+                {Object.keys(alaotsikot).map(key=><p>{alaotsikot[key].sivun_alaotsikko}</p>)}
+                {Object.keys(tekstit).map(key=><p>{tekstit[key].sivun_teksti}</p>)}
+                {Object.keys(kuvat).map(key=><p>{kuvat[key].sivun_kuva.data}</p>)}
+                 </div>
                 )
                 ://-----------------------------------------------------------------------------------------------------------------
                 (
@@ -160,13 +160,14 @@ function Sisalto () {
                 </tbody>
             </table>
 
-                                    <img src={teemakuvaBin} alt="(teemakuva) Ei vittu toimi legit hyppään kaivoon"/>
+            <img src={`data:image/jpeg;base64,/9j/${btoa(teemakuvaBin)}`} alt={`(teemakuva) ei toimi legit hyppään kaivoon\n data:image/jpeg;base64,/9j/${btoa(teemakuvaBin)}`}/>
                 
                                     <div id="sisallot">
-                <p>{JSON.stringify(alaotsikot)}</p>
-                <p>{JSON.stringify(tekstit)}</p>
-                <p>{JSON.stringify(kuvat)}</p>
-
+                {Object.keys(alaotsikot).map(key=><p>{alaotsikot[key].sivun_alaotsikko}</p>)}
+                {Object.keys(tekstit).map(key=><p>{tekstit[key].sivun_teksti}</p>)}
+                {Object.keys(kuvat).map(key=><p>data:image/jpeg;base64,/9J/{btoa(encodeURI(kuvat[key]?.sivun_kuva.data))}</p>)}
+                {Object.keys(kuvat).map(key=><img src={`"data:image/jpeg;base64,/9j/"${btoa(kuvat[key].sivun_kuva.data)}`}/>)}
+                {/* {console.log(kuvat[0]?.sivun_kuva.data.toString().replaceAll(',', ''))} */}
 
                 </div>
                     </div>)}
@@ -181,10 +182,6 @@ function Sisalto () {
                      <label htmlFor="tekstijakuva">Teksti ja kuva</label><br/>
                      <button type="submit">Lisää uusi elementti</button>
                 </form>  
-
-              {/* <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
-    AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
-        9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" /> */}
             </div>
         )
         
