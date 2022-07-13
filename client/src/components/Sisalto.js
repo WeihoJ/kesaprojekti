@@ -94,17 +94,54 @@ function Sisalto () {
                 }
             }
         };
-    const Lisaa = async(e)=>{
-        e.preventDefault();
-            let sisallot=document.getElementById("sisallot");
-            kaikkiTestitiedot.map((teksti)=>{
-               let osa=document.createElement("p");
-               osa.innerHTML=teksti.teksti;
-               osa.setAttribute("contenteditable",true);
-               console.log(osa);
-               sisallot.appendChild(osa) 
-            })
-        };
+        document.addEventListener("DOMContentLoaded",()=>{
+            document.getElementById("alaotsikkonappi").addEventListener("click",Lisaa("alaotsikko"));
+            document.getElementById("tekstinappi").addEventListener("click",Lisaa("teksti"));
+            document.getElementById("kuvanappi").addEventListener("click",Lisaa("kuva"));
+        })
+
+
+    const Lisaa = async(mitaLisataan)=>{
+        if(mitaLisataan=="alaotsikko"){
+            let lisattava=document.getElementById("alaotsikko").value;
+            if(lisattava!=""&&lisattava!=null){
+                console.log(lisattava)
+
+            }
+        }
+        else if(mitaLisataan=="teksti"){
+            let lisattava=document.getElementById("teksti").value;
+            if(lisattava!=""&&lisattava!=null){
+                console.log(lisattava)
+
+            }
+        }
+        else if(mitaLisataan=="kuva"){
+            let lisattava=document.getElementById("kuva");
+
+            if(lisattava!=""&&lisattava!=null){
+                let kuva=document.getElementById("image");
+                const lisattavaKuva=lisattava.files[0];
+                console.log(lisattavaKuva);
+
+                // var blobObj = new Blob(lisattavaKuva, { type: "img/*" });
+                // console.log(blobObj.size)
+
+                
+                document.getElementById("lisaysParent").appendChild(kuva);
+                var url = window.URL.createObjectURL(lisattavaKuva);
+                console.log(url)
+                kuva.setAttribute("src", url);
+
+            }
+        }
+        
+
+        }
+        
+
+        
+        
 
     EtsiSivu();
         
@@ -136,8 +173,16 @@ function Sisalto () {
                 <img src={`data:image/jpeg;base64,/9j/${btoa(teemakuvaBin)}`} alt={`(teemakuva) ei toimi legit hyppään kaivoon\n data:image/jpeg;base64,/9j/${btoa(teemakuvaBin)}`}/>
                 {Object.keys(alaotsikot).map(key=><p>{alaotsikot[key].sivun_alaotsikko}</p>)}
                 {Object.keys(tekstit).map(key=><p>{tekstit[key].sivun_teksti}</p>)}
-                {Object.keys(kuvat).map(key=><p>{kuvat[key].sivun_kuva.data}</p>)}
+
+                    <br/>
+                    <div id="lisaysParent" style={{backgroundColor:"darkkhaki"}}>
+                    <label style={{margin:10}}>Alaotsikko</label><input type="text" accept='image/*' id="alaotsikko"/><button onClick={()=>Lisaa("alaotsikko")}>Lisää</button><br/>
+                    <label style={{margin:10}}>Teksti</label><input type="text" id="teksti"/><button onClick={()=>Lisaa("teksti")}>Lisää</button><br/>
+                    <label style={{margin:10}}>Kuva</label><input type="file" id="kuva"/><button style={{margin:-25}} onClick={()=>Lisaa("kuva")}>Lisää</button><br/>
+                    <img id='image' class="previewImg"/>
+                    </div>
                  </div>
+                 
                 )
                 ://-----------------------------------------------------------------------------------------------------------------
                 (
@@ -160,28 +205,16 @@ function Sisalto () {
                 </tbody>
             </table>
 
-            <img src={`data:image/jpeg;base64,/9j/${btoa(teemakuvaBin)}`} alt={`(teemakuva) ei toimi legit hyppään kaivoon\n data:image/jpeg;base64,/9j/${btoa(teemakuvaBin)}`}/>
                 
                                     <div id="sisallot">
+                <img src={`data:image/jpeg;base64,/9j/${btoa(teemakuvaBin)}`} alt={`(teemakuva) ei toimi legit hyppään kaivoon\n data:image/jpeg;base64,/9j/${btoa(teemakuvaBin)}`}/>
                 {Object.keys(alaotsikot).map(key=><p>{alaotsikot[key].sivun_alaotsikko}</p>)}
                 {Object.keys(tekstit).map(key=><p>{tekstit[key].sivun_teksti}</p>)}
-                {Object.keys(kuvat).map(key=><p>data:image/jpeg;base64,/9J/{btoa(encodeURI(kuvat[key]?.sivun_kuva.data))}</p>)}
-                {Object.keys(kuvat).map(key=><img src={`"data:image/jpeg;base64,/9j/"${btoa(kuvat[key].sivun_kuva.data)}`}/>)}
                 {/* {console.log(kuvat[0]?.sivun_kuva.data.toString().replaceAll(',', ''))} */}
 
                 </div>
                     </div>)}
                 <hr></hr>
-
-                <form onSubmit={Lisaa}>
-                    <input type="radio" name="teksti" value="teksti"/>
-                     <label htmlFor="teksti">Teksti</label><br/>
-                    <input type="radio" name="kuva" value="kuva"/>
-                     <label htmlFor="kuva">Kuva</label><br/>
-                    <input type="radio" name="tekstijakuva" value="kuvajateksti"/>
-                     <label htmlFor="tekstijakuva">Teksti ja kuva</label><br/>
-                     <button type="submit">Lisää uusi elementti</button>
-                </form>  
             </div>
         )
         

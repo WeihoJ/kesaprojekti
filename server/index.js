@@ -224,6 +224,19 @@ app.get("/kuvaa", (req, res) => {
      
         });
 });
+app.get("/lisaaContenttia", (req, res) => {
+    
+    varasto
+        .lisaaContenttia()
+        .then((tulos) => {
+            res.send(tulos);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send(err);
+     
+        });
+});
 
 app.post("/lisaaSivu", (req, res) => {
     const nimi=req.body.nimi;
@@ -240,6 +253,7 @@ app.post("/lisaaSivu", (req, res) => {
             res.send(err);
         });
 });
+
 app.listen(port, host, () => {
     console.log(`Palvelin käynnistyi portissa ${port}`);
 });

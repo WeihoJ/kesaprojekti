@@ -18,7 +18,12 @@
     "haeKaikkiTieto":"SELECT sivut.sivun_nimi, sivun_otsikko, sivun_url, sivun_teemakuva, sivun_teksti, sivun_kuva, sivun_alaotsikko FROM sivut INNER JOIN sivutekstit ON sivut.sivun_nimi=sivutekstit.sivun_nimi INNER JOIN sisaltokuvat ON sivut.sivun_nimi=sisaltokuvat.sivun_nimi INNER JOIN alaotsikot ON sivut.sivun_nimi=alaotsikot.sivun_nimi WHERE sivut.sivun_nimi=? ",
     "haeSivunTekstit":"SELECT * FROM sivutekstit WHERE sivun_nimi=?",
     "haeSivunAlaotsikot":"SELECT * FROM alaotsikot WHERE sivun_nimi=?",
-    "haeSivunKuvat":"SELECT * FROM sisaltokuvat WHERE sivun_nimi=?"
+    "haeSivunKuvat":"SELECT * FROM sisaltokuvat WHERE sivun_nimi=?",
+
+    "lisaaSivulleTekstiä":"INSERT INTO sivutekstit VALUES(?,?)",
+    "lisaaSivulleAlaotsikko":"INSERT INTO alaotsikot VALUES(?,?)",
+    "lisaaSivulleKuva":"INSERT INTO sisaltokuvat VALUES(?,?)"
+
 
 
 }
