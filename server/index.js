@@ -224,18 +224,26 @@ app.get("/kuvaa", (req, res) => {
      
         });
 });
-app.get("/lisaaContenttia", (req, res) => {
+app.post("/lisaaContenttia", (req, res) => {
+    let content=req.body;
     
-    varasto
-        .lisaaContenttia()
-        .then((tulos) => {
-            res.send(tulos);
-        })
-        .catch((err) => {
-            console.log(err);
-            res.send(err);
+    // let contentType=req.body.params.mitaLisataan;
+    // let sivunNimi=req.body.params.nimi;
+
+    console.log("Content: "+JSON.stringify(content));
+    // console.log("Type: "+contentType);
+    // console.log("Sivun nimi: "+sivunNimi);
+
+    // varasto
+    //     .lisaaContenttia()
+    //     .then((tulos) => {
+    //         res.send(tulos);
+    //     })
+    //     .catch((err) => {
+    //         console.log(err);
+    //         res.send(err);
      
-        });
+    //     });
 });
 
 app.post("/lisaaSivu", (req, res) => {

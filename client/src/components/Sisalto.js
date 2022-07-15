@@ -105,34 +105,45 @@ function Sisalto () {
         if(mitaLisataan=="alaotsikko"){
             let lisattava=document.getElementById("alaotsikko").value;
             if(lisattava!=""&&lisattava!=null){
-                console.log(lisattava)
+                await axios.post(
+                    "http://localhost:3001/lisaaContenttia",{params:
+                    {lisattava,mitaLisataan,nimi}})
 
             }
         }
         else if(mitaLisataan=="teksti"){
             let lisattava=document.getElementById("teksti").value;
             if(lisattava!=""&&lisattava!=null){
-                console.log(lisattava)
+                await axios.post(
+                    "http://localhost:3001/lisaaContenttia",{params:{
+                        lisattava,mitaLisataan,nimi
+                    }})
 
             }
         }
         else if(mitaLisataan=="kuva"){
-            let lisattava=document.getElementById("kuva");
+            let lisattavaElmnt=document.getElementById("kuva");
 
-            if(lisattava!=""&&lisattava!=null){
+            if(lisattavaElmnt!=""&&lisattavaElmnt!=null){
                 let kuva=document.getElementById("image");
-                const lisattavaKuva=lisattava.files[0];
-                console.log(lisattavaKuva);
-
-                // var blobObj = new Blob(lisattavaKuva, { type: "img/*" });
-                // console.log(blobObj.size)
-
+                const lisattava=lisattavaElmnt.files[0];
+                if(lisattava!=undefined){
+                    console.log(lisattava);
                 
-                document.getElementById("lisaysParent").appendChild(kuva);
-                var url = window.URL.createObjectURL(lisattavaKuva);
-                console.log(url)
-                kuva.setAttribute("src", url);
-
+                    document.getElementById("lisaysParent").appendChild(kuva);
+                    var url = window.URL.createObjectURL(lisattava);
+    
+                    kuva.setAttribute("src", url);
+                    let params={
+                        lisattava:lisattava,
+                        mitaLisataan:mitaLisataan,
+                        nimi,nimi
+                    };
+                    console.log(params);
+                    await axios.post(
+                        "http://localhost:3001/lisaaContenttia", lisattava,null
+                        )
+                }
             }
         }
         
