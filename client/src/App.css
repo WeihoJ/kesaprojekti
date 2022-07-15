@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap");
 
 /* Värit */
 * {
-    --color-primary: #086BA8;
-    --color-secondary: #0096F5;
-    --color-highlights: #AD4900;
+    --color-primary: #086ba8;
+    --color-secondary: #0096f5;
+    --color-highlights: #ad4900;
     --color-highlights-hover: #ad3100c9;
     --color-texts: #054065;
-    --color-neutral: #FFF9F5;
+    --color-neutral: #fff9f5;
 }
 
 .primary {
@@ -24,7 +24,7 @@
 
 .texts {
     color: var(--color-texts);
-    font-family: 'Barlow';
+    font-family: "Barlow";
     font-size: 16px;
     font-weight: 400;
     line-height: 1.4;
@@ -73,10 +73,10 @@ p {
     margin: 10px;
     padding: 2em;
 }
-.sisalto{
-    margin:20px;
-    min-height:50em;
-    border:1px black dotted;
+.sisalto {
+    margin: 20px;
+    min-height: 50em;
+    border: 1px black dotted;
 }
 .margintop {
     margin-top: 10em;
@@ -92,7 +92,7 @@ p {
 /* Navbar */
 
 .nav-item a {
-    color: var(--color-neutral)
+    color: var(--color-neutral);
 }
 
 .nav-item {
@@ -283,9 +283,9 @@ footer {
     padding-top: 50px;
     padding-bottom: 30px;
 }
-.previewImg{
-    max-width:150px;
-    max-height:100px;
+.previewImg {
+    max-width: 150px;
+    max-height: 100px;
 }
 .footerimg {
     background-image: url("./assets/img/logo/Logo\ dark.png");
@@ -294,10 +294,9 @@ footer {
     color: var(--color-neutral);
     height: 3em;
 }
-.tehdasform{
+.tehdasform {
     border: 1px solid black;
-    padding:15px;
-
+    padding: 15px;
 }
 ol {
     list-style: none;
@@ -339,7 +338,6 @@ ol {
 /* Responsiivisuus */
 /* Large */
 @media only screen and (max-width: 992px) {
-
     /* Video */
     .video-background {
         height: 500px;
@@ -387,7 +385,6 @@ ol {
 
 /* Medium */
 @media only screen and (max-width: 768px) {
-
     /* Video */
     .caption {
         padding: 0px 50px;
@@ -422,7 +419,6 @@ ol {
 
 /* Small */
 @media only screen and (max-width: 576px) {
-
     /* Navbar */
     .navbar .container-fluid {
         padding: 0 !important;
@@ -482,7 +478,6 @@ ol {
 
 /* Omat responsiivisuudet */
 @media only screen and (max-width: 450px) {
-
     /* Info */
     .IKuva img {
         min-width: 350px;
@@ -497,4 +492,77 @@ ol {
 
 section {
     margin-top: 5em;
+}
+
+/* Sivutehdas2 */
+
+/* The sidebar menu */
+
+.sidebar {
+    margin-top: 75px;
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 50%;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left 0.5s; /* If you want a transition effect */
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+    .sidebar a {
+        font-size: 18px;
+    }
 }
