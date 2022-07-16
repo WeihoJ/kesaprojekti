@@ -27,6 +27,13 @@ app.use(
     })
 );
 
+app.use(function (req, res, next) {
+    //Enabling CORS
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+      next();
+    });
 app.use(
     cors({
         origin: "http://localhost:3000",
@@ -225,14 +232,13 @@ app.get("/kuvaa", (req, res) => {
         });
 });
 app.post("/lisaaContenttia", (req, res) => {
-    let content=req.body;
-    
-    // let contentType=req.body.params.mitaLisataan;
-    // let sivunNimi=req.body.params.nimi;
+    let content=req.body.base64Kuva;
+    let contentType=req.body.mitaLisataan;
+    let sivunNimi=req.body.nimi;
 
     console.log("Content: "+JSON.stringify(content));
-    // console.log("Type: "+contentType);
-    // console.log("Sivun nimi: "+sivunNimi);
+    console.log("Type: "+contentType);
+    console.log("Sivun nimi: "+sivunNimi);
 
     // varasto
     //     .lisaaContenttia()

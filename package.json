@@ -20,6 +20,7 @@
     "homepage": "https://github.com/WeihoJ/kesaprojekti#readme",
     "dependencies": {
         "Buffer": "0.0.0",
+        "buffer": "^6.0.3",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
         "react-router-dom": "^6.3.0"

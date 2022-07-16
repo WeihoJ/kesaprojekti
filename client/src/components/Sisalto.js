@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import axios from "axios";
+import { Buffer } from 'buffer';
+window.Buffer = Buffer;
 
 function Sisalto () {
     const [nimi, setNimi] = useState("");
@@ -127,21 +129,26 @@ function Sisalto () {
             if(lisattavaElmnt!=""&&lisattavaElmnt!=null){
                 let kuva=document.getElementById("image");
                 const lisattava=lisattavaElmnt.files[0];
-                if(lisattava!=undefined){
-                    console.log(lisattava);
-                
-                    document.getElementById("lisaysParent").appendChild(kuva);
-                    var url = window.URL.createObjectURL(lisattava);
-    
-                    kuva.setAttribute("src", url);
-                    let params={
-                        lisattava:lisattava,
-                        mitaLisataan:mitaLisataan,
-                        nimi,nimi
-                    };
-                    console.log(params);
+                if(lisattava!=undefined){                    
+                    const getBase64 =(tdst)=> {
+                        return new Promise((resolve, reject) => {
+                          const lukija = new FileReader();
+                          lukija.readAsDataURL(tdst);
+                          lukija.onload = () => resolve(lukija.result);
+                          lukija.onerror = error => reject(error);
+                        });
+                    
+                    }
+                      let base64Kuva= await getBase64(lisattava);
+                    kuva.setAttribute("src", base64Kuva);
+
+
                     await axios.post(
-                        "http://localhost:3001/lisaaContenttia", lisattava,null
+                        "http://localhost:3001/lisaaContenttia", {
+                            base64Kuva,mitaLisataan,nimi
+                        }
+                        
+                        
                         )
                 }
             }
@@ -187,9 +194,9 @@ function Sisalto () {
 
                     <br/>
                     <div id="lisaysParent" style={{backgroundColor:"darkkhaki"}}>
-                    <label style={{margin:10}}>Alaotsikko</label><input type="text" accept='image/*' id="alaotsikko"/><button onClick={()=>Lisaa("alaotsikko")}>Lisää</button><br/>
+                    <label style={{margin:10}}>Alaotsikko</label><input type="text" id="alaotsikko"/><button onClick={()=>Lisaa("alaotsikko")}>Lisää</button><br/>
                     <label style={{margin:10}}>Teksti</label><input type="text" id="teksti"/><button onClick={()=>Lisaa("teksti")}>Lisää</button><br/>
-                    <label style={{margin:10}}>Kuva</label><input type="file" id="kuva"/><button style={{margin:-25}} onClick={()=>Lisaa("kuva")}>Lisää</button><br/>
+                    <label style={{margin:10}}>Kuva</label><input type="file" accept='image/png, image/jpg, image/jpeg' id="kuva"/><button style={{margin:-25}} onClick={()=>Lisaa("kuva")}>Lisää</button><br/>
                     <img id='image' class="previewImg"/>
                     </div>
                  </div>
