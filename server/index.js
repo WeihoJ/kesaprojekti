@@ -14,6 +14,8 @@ const varasto = new Tietovarasto();
 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 
 app.use(
     session({
@@ -235,21 +237,19 @@ app.post("/lisaaContenttia", (req, res) => {
     let content=req.body.base64Kuva;
     let contentType=req.body.mitaLisataan;
     let sivunNimi=req.body.nimi;
+    let imgBlob = new Blob([content],{type:"image/*"}); //Blobina tietokantaan?
 
-    console.log("Content: "+JSON.stringify(content));
-    console.log("Type: "+contentType);
-    console.log("Sivun nimi: "+sivunNimi);
 
-    // varasto
-    //     .lisaaContenttia()
-    //     .then((tulos) => {
-    //         res.send(tulos);
-    //     })
-    //     .catch((err) => {
-    //         console.log(err);
-    //         res.send(err);
+    varasto
+        .lisaaContenttia()
+        .then((tulos) => {
+            res.send(tulos);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send(err);
      
-    //     });
+        });
 });
 
 app.post("/lisaaSivu", (req, res) => {

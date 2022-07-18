@@ -25,6 +25,7 @@ function Sisalto () {
     const EtsiSivu = async () => {
     useEffect(()=>{
         async function joo(){
+            
             const sivutieto = await axios.get(
                 "http://localhost:3001/sivu",{params: {
                     url:sivunUrl
@@ -41,7 +42,7 @@ function Sisalto () {
             setNimi(await sivu.sivun_nimi);
             setUrl(await sivu.sivun_url);
             setOtsikko(await sivu.sivun_otsikko);
-            setTeemakuvaBin("data:image/png;base64, "+btoa(await sivu.sivun_teemakuva.data));
+            setTeemakuvaBin(sivu.sivun_teemakuva.data);
             setTekstit(await sivutiedot.data[0]);
             setAlaotsikot(await sivutiedot.data[1]);
             setKuvat(await sivutiedot.data[2]);
@@ -140,9 +141,10 @@ function Sisalto () {
                     
                     }
                       let base64Kuva= await getBase64(lisattava);
-                    kuva.setAttribute("src", base64Kuva);
+                      let imgBlob = new Blob([lisattava],{type:"image/*"});
 
-
+                    kuva.setAttribute("src", URL.createObjectURL(imgBlob));
+                    //muuta kuva toiseen muotoon, esim Blob!!!!!!!!!!!!!!!!
                     await axios.post(
                         "http://localhost:3001/lisaaContenttia", {
                             base64Kuva,mitaLisataan,nimi
@@ -188,7 +190,6 @@ function Sisalto () {
                 </tbody>
             </table>
 
-                <img src={`data:image/jpeg;base64,/9j/${btoa(teemakuvaBin)}`} alt={`(teemakuva) ei toimi legit hyppään kaivoon\n data:image/jpeg;base64,/9j/${btoa(teemakuvaBin)}`}/>
                 {Object.keys(alaotsikot).map(key=><p>{alaotsikot[key].sivun_alaotsikko}</p>)}
                 {Object.keys(tekstit).map(key=><p>{tekstit[key].sivun_teksti}</p>)}
 
@@ -225,10 +226,8 @@ function Sisalto () {
 
                 
                                     <div id="sisallot">
-                <img src={`data:image/jpeg;base64,/9j/${btoa(teemakuvaBin)}`} alt={`(teemakuva) ei toimi legit hyppään kaivoon\n data:image/jpeg;base64,/9j/${btoa(teemakuvaBin)}`}/>
                 {Object.keys(alaotsikot).map(key=><p>{alaotsikot[key].sivun_alaotsikko}</p>)}
                 {Object.keys(tekstit).map(key=><p>{tekstit[key].sivun_teksti}</p>)}
-                {/* {console.log(kuvat[0]?.sivun_kuva.data.toString().replaceAll(',', ''))} */}
 
                 </div>
                     </div>)}
