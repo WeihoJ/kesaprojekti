@@ -6,7 +6,6 @@ const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-
 const { port, host } = require("./config.json");
 
 const Tietovarasto = require("./sql/dbHandler.js");
@@ -234,14 +233,13 @@ app.get("/kuvaa", (req, res) => {
         });
 });
 app.post("/lisaaContenttia", (req, res) => {
-    let content=req.body.base64Kuva;
+    let content=req.body.lisattava||req.body.base64Kuva
     let contentType=req.body.mitaLisataan;
     let sivunNimi=req.body.nimi;
-    let imgBlob = new Blob([content],{type:"image/*"}); //Blobina tietokantaan?
 
 
     varasto
-        .lisaaContenttia()
+        .lisaaContenttia(content,contentType,sivunNimi)
         .then((tulos) => {
             res.send(tulos);
         })

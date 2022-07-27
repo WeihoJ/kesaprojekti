@@ -15,9 +15,6 @@ function Sisalto () {
     const [kuvat,setKuvat]=useState({});
 
     const sivunUrl= useParams().url;
-
-    //editorin muuttujat
-
     const [msg, setMsg] = useState("");
 
     axios.defaults.withCredentials = true;
@@ -109,8 +106,8 @@ function Sisalto () {
             let lisattava=document.getElementById("alaotsikko").value;
             if(lisattava!=""&&lisattava!=null){
                 await axios.post(
-                    "http://localhost:3001/lisaaContenttia",{params:
-                    {lisattava,mitaLisataan,nimi}})
+                    "http://localhost:3001/lisaaContenttia",
+                    {lisattava,mitaLisataan,nimi})
 
             }
         }
@@ -118,9 +115,9 @@ function Sisalto () {
             let lisattava=document.getElementById("teksti").value;
             if(lisattava!=""&&lisattava!=null){
                 await axios.post(
-                    "http://localhost:3001/lisaaContenttia",{params:{
+                    "http://localhost:3001/lisaaContenttia",{
                         lisattava,mitaLisataan,nimi
-                    }})
+                    })
 
             }
         }
@@ -192,6 +189,8 @@ function Sisalto () {
 
                 {Object.keys(alaotsikot).map(key=><p>{alaotsikot[key].sivun_alaotsikko}</p>)}
                 {Object.keys(tekstit).map(key=><p>{tekstit[key].sivun_teksti}</p>)}
+                {Object.keys(kuvat).map(key=><img src={kuvat[key].sivun_kuva}/>)}
+
 
                     <br/>
                     <div id="lisaysParent" style={{backgroundColor:"darkkhaki"}}>

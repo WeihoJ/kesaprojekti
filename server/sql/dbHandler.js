@@ -323,7 +323,7 @@ module.exports = class Tietovarasto {
                 let b="Njiauum";
                 //mutta tuoduilla parametreilla ei (changedRows: 0) vaikka syöttäisi täysin samat
                 //tuotu url toimii!!!! nimi ja otsikko ei
-console.log(nimi,otsikko,url)
+                    console.log(nimi,otsikko,url)
 
 
 
@@ -341,4 +341,48 @@ console.log(nimi,otsikko,url)
             }
         })
     }
+    lisaaContenttia(c,cType,sivu){
+        return new Promise(async(resolve,reject)=>{
+            try{
+
+                if(c==="" || c==="undefined"){
+                    reject("Contentti on tyhjä");
+                }
+                else if(cType==="" || cType==="undefined"){
+                    reject("Contentin tyyppi ei ole määrittety");
+                }
+                else if(sivu==="" || sivu==="undefined"){
+                    reject("Sivua jolle lisätään ei ole määrittety");
+                }
+                else{
+                    let qry="";
+                    switch(cType){
+                        case "alaotsikko":
+                            qry=sql.lisaaSivulleAlaotsikko;
+                        break;
+                        case "teksti":
+                            qry=sql.lisaaSivulleTekstiä;
+                        break;
+                        case "kuva":
+                            qry=sql.lisaaSivulleKuva;
+                        break;
+                    }
+
+                    const tulos=await this.db.runQuery(qry,[c,cType,sivu]);//tysää tähän, ei mene eteenpäin
+                    console.log("Tulos: "+tulos);
+                    if (tulos.length == 0) {
+                        reject("Jokin meni pieleen: "+tulos);
+                    } else {
+                        resolve(`Lisäys onnistui, ${tulos}`);
+    
+                    }
+
+                }
+            }
+            catch(err){
+                
+            }
+        })
+    }
 };
+
